@@ -8,11 +8,26 @@ describe('Day one Part 2, Find the first frequency repeated', () => {
 		assert.equal(frequencyRepeater(values), expect);
 	});
 
-	xit('WHEN given [ +3, +3, +4, -2, -4 ]  THEN it first reaches 10 twice', () => {
+	it('WHEN given [ +3, +3, +4, -2, -4 ]  THEN it first reaches 10 twice', () => {
 		const values = [ '+3', '+3', '+4', '-2', '-4' ];
 		const expect = 10;
 		assert.equal(frequencyRepeater(values), expect);
 	});
+
+	it('WHEN GIVEN [ -6, +3, +8, +5, -6 ] THEN if first reaches 5 twice.', () => {
+		const values =  [ -6, +3, +8, +5, -6 ];
+		const expect = 5
+		assert.equal(frequencyRepeater(values), expect);
+	});
+	
+	it('WHEN GIVEN [ +7, +7, -2, -7, -4 ] THEN if first reaches 14 twice.', () => {
+		const values = [ +7, +7, -2, -7, -4 ]; 
+		const expect = 14;
+		assert.equal(frequencyRepeater(values), expect);
+	});
+
+	// +7, +7, -2, -7, -4 first reaches 14 twice.
+
 
 	function frequencyRepeater(data) {
 		let current = 0;
@@ -21,19 +36,19 @@ describe('Day one Part 2, Find the first frequency repeated', () => {
 
 		for(let i = 0; i < numbers.length; i++) {
 			current += numbers[i];
-			console.log({ current, i });
-			if (cache.indexOf(current) !== -1) {
-				cache.push(current);
-				break;
-			} else if (i === data.length) {
+			
+			if (i === numbers.length - 1) {
 				i = -1;
 			}
-		}
 
+			if (cache.indexOf(current) === -1) {
+				cache.push(current);
+				continue;
+			}
+			break;
+		}
 		return current;
 	}
 
-	// -6, +3, +8, +5, -6 first reaches 5 twice.
-	// +7, +7, -2, -7, -4 first reaches 14 twice.
-
+	
 });
