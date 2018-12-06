@@ -40,6 +40,7 @@ describe('Day 1 part one, Frequency calulator', () => {
 	}
 
 	function frequencyCalculator(data) {
+		if (Array.isArray(data) === false) { return 0 };
 		const numbers = data.map(numberParser);
 		return numbers.reduce((a, b) => a + b, 0);
 	}
