@@ -1,4 +1,5 @@
 const assert = require('assert');
+const { numberParser, frequencyCalculator } = require('../src/day-01/part-1');
 
 describe('Day 1 part one, Frequency calulator', () => {
 	it('It should default to zero', () => {
@@ -35,7 +36,7 @@ describe('Day 1 part one, Frequency calulator', () => {
 		});
 	});
 	
-	function numberParser(numberString) {
+	/* function numberParser(numberString) {
 		return +numberString;
 	}
 
@@ -43,6 +44,6 @@ describe('Day 1 part one, Frequency calulator', () => {
 		if (Array.isArray(data) === false) { return 0; };
 		const numbers = data.map(numberParser);
 		return numbers.reduce((a, b) => a + b, 0);
-	}
+	} */
 
 });
