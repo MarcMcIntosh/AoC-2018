@@ -11,19 +11,19 @@ describe('Day 1 part one, Frequency calulator', () => {
 		it('WHEN GIVEN [ "+1", "+1", "+1" ] THEN return 3', () => {
 			const values = [ "+1", "+1", "-2" ];
 			const expect = 0;
-			assert.equal(frequencyCalculator(), expect);
+			assert.equal(frequencyCalculator(values), expect);
 		});
 		
 		it('WHEN GIVEN [ "+1", "+1", "-2" ] THEN return 0', () => {
 			const values = [ "+1", "+1", "-2"];
 			const expect = 0;
-			assert.equal(frequencyCalculator(), expect);
+			assert.equal(frequencyCalculator(values), expect);
 		});
 
 		it('WHEN GIVEN it [ "-1", "-2", "-3" ] THEN return -6', () => {    
 			const values = [ "-1", "-2", "-3" ];
 			const expect = -6;
-			assert.equal(frequencyCalculator(), expect);
+			assert.equal(frequencyCalculator(values), expect);
 		});
 	});
 
@@ -40,7 +40,7 @@ describe('Day 1 part one, Frequency calulator', () => {
 	}
 
 	function frequencyCalculator(data) {
-		if (Array.isArray(data) === false) { return 0 };
+		if (Array.isArray(data) === false) { return 0; };
 		const numbers = data.map(numberParser);
 		return numbers.reduce((a, b) => a + b, 0);
 	}
