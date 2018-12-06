@@ -8,11 +8,17 @@ describe('Day one Part 2, Find the first frequency repeated', () => {
 		assert.equal(frequencyRepeater(values), expect);
 	});
 
+	it('WHEN given [ +3, +3, +4, -2, -4 ]  THEN it first reaches 10 twice', () => {
+		const values = [ '+3', '+3', '+4', '-2', '-4' ];
+		const expect = 10;
+		assert.equal(frequencyRepeater(values), expect);
+	});
+
 	function frequencyRepeater(data) {
-		return 0;
+		let current = 0;
+		return current;
 	}
 
-	// +3, +3, +4, -2, -4 first reaches 10 twice.
 	// -6, +3, +8, +5, -6 first reaches 5 twice.
 	// +7, +7, -2, -7, -4 first reaches 14 twice.
 
