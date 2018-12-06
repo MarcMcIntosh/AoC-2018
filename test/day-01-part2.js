@@ -1,4 +1,5 @@
 const assert = require('assert');
+const frequencyRepeater = require('../src/day-01/part-2.js');
 
 describe('Day one Part 2, Find the first frequency repeated', () => {
 	
@@ -28,7 +29,7 @@ describe('Day one Part 2, Find the first frequency repeated', () => {
 
 	// +7, +7, -2, -7, -4 first reaches 14 twice.
 
-
+/*
 	function frequencyRepeater(data) {
 		let current = 0;
 		const cache = [].concat(current);
@@ -49,6 +50,6 @@ describe('Day one Part 2, Find the first frequency repeated', () => {
 		}
 		return current;
 	}
-
+*/
 	
 });
