@@ -32,7 +32,7 @@ describe('Day 2: part 1', () => {
 
 		it('WHEN GIVEN two strings that SHARE one letter return the shared letter', () => {
 			const expect = EXAMPLE_RESULT;
-			const [ word1, word2 ] = EXAMPLE_WALID_IDS;
+			const [ word1, word2 ] = EXAMPLE_VALID_IDS;
 			const result = sharedLetters(word1, word2);
 
 			assert.equal(expect, result);
