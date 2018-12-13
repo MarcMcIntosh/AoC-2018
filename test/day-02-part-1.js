@@ -20,5 +20,15 @@ describe('Day 2: part 1', () => {
 			assert.equal(diffrentByOneLetter('fghij', 'fguij'), true);
 		});
 	});
+
+	describe('Find the common letters between two words', () => {
+
+		it('WHEN GIVEN two words that share no letters return and empty string', () => {
+			const expect  = ''
+			const result = sharedLetters('a', 'b');
+
+			assert.equal(expect, result);
+		});
+	});
 });
 
