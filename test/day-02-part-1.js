@@ -29,6 +29,11 @@ describe('Day 2: part 1', () => {
 
 			assert.equal(expect, result);
 		});
+
+		function sharedLetters() {
+			return '';
+		}
 	});
+	
 });
 
