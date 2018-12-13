@@ -8,7 +8,7 @@ const EXAMPLE_VALID_IDS = ['fghij', 'fguij'];
 
 // This is similar to the validator from word-chain-kata
 
-describe('Day 2: part 1', () => {
+describe('Day 2: part 2', () => {
 
 	describe('Find words that are diffrent by one letter', () => {
 
