@@ -47,44 +47,45 @@ const EXAMPLE_INPUT = [ '#1 @ 1,3: 4x4', '#2 @ 3,1: 4x4', '#3 @ 5,5: 2x2'];
 const EXECTED_OUTPUT = 2;
 
 describe('Parse an input string', () => {
-	it('When given #1 @ 1,3: 4x4 the returned id should be #1', () => {
-		const expect = '#1';
-		const value = '#1 @ 1,3: 4x4';
 
-		assert.equal(parseInput(value).id, expect);
+	describe('Pasring id', () => {
+		it('When given #1 @ 1,3: 4x4 the returned id should be #1', () => {
+			const expect = '#1';
+			const value = '#1 @ 1,3: 4x4';
+
+			assert.equal(parseInput(value).id, expect);
+		});
+
+		it('When given #2 @ 3,1: 4x4 the returned id should be #2', () => {
+                	const expect = '#2';
+                	const value = '#2 @ 3,1: 4x4';
+
+                	assert.equal(parseInput(value).id, expect);
+        	});
 	});
 
-	it('When given #2 @ 3,1: 4x4 the returned id should be #2', () => {
-                const expect = '#2';
-                const value = '#2 @ 3,1: 4x4';
+	describe('Parseing starting coordantes', () => {
+		it('When given an imput string #1 @ 1,3: 4x4 shoud return the starting coordantes of occupied spaces [1, 3]', () => {
+			const expect = [1,3];
+			const value = '#1 @ 1,3: 4x4';
+			const result = parseInput(value).coords[0];
 
-                assert.equal(parseInput(value).id, expect);
-        });
-
-	it('When given an imput string #1 @ 1,3: 4x4 shoud return the starting coordantes of occupied spaces [1, 3]', () => {
-		const expect = [1,3];
-		const value = '#1 @ 1,3: 4x4';
-		const result = parseInput(value).coords[0];
-
-		assert.deepEqual(result, expect);
-	});
+			assert.deepEqual(result, expect);
+		});
 	
-	it('When given an imput string #2 @ 3,1: 4x4 shoud return the starting coordantes of occupied spaces [3,3]', () => {
-		const expect = [3,1];
-		const value = '#2 @ 3,1: 4x4';
-		const result = parseInput(value).coords[0];
+		it('When given an imput string #2 @ 3,1: 4x4 shoud return the starting coordantes of occupied spaces [3,3]', () => {
+			const expect = [3,1];
+			const value = '#2 @ 3,1: 4x4';
+			const result = parseInput(value).coords[0];
 
-		assert.deepEqual(result, expect);
+			assert.deepEqual(result, expect);
+		});
 	});
-
-
 
 	function parseInput(plan) {
 		const id = /#\d+/.exec(plan)[0];
 		const coords = [ [1,3] ];
 		return { id, coords };
-
 	};
-
 
 });
