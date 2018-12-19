@@ -51,20 +51,21 @@ describe('Parse an input string', () => {
 		const expect = '#1';
 		const value = '#1 @ 1,3: 4x4';
 
-		assert.equal(parseInput(value), expect);
+		assert.equal(parseInput(value).id, expect);
 	});
 
 	it('When given #2 @ 3,1: 4x4 the returned id should be #2', () => {
                 const expect = '#2';
                 const value = '#2 @ 3,1: 4x4';
 
-                assert.equal(parseInput(value), expect);
+                assert.equal(parseInput(value).id, expect);
         });
 
 
 	function parseInput(plan) {
-		const id = /#\d+/.exec(plan);
-		return id[0];
+		const id = /#\d+/.exec(plan)[0];
+		return { id };
+
 	};
 
 
