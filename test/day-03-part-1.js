@@ -83,12 +83,12 @@ describe('Parse an input string', () => {
 	});
 
 	describe('Parse all coordinates', () => {
-		it('WHEN given "#1 @ 1,3: 4x4" THEN the cooradntes of all areas from 1,3 to 4,7', () => {
+		it('WHEN given "#1 @ 1,3: 4x4" THEN the cooradntes of all areas from 1,3 to 4,6', () => {
 			const expect = [
-				'1,3','1,4', '1,5','1,6','1,7',
-				'2,3','2,4','2,5','2,6','2,7',
-				'3,3','3,4','3,5','3,6','3,7',
-				'4,3','4,4','4,5','4,6','4,7',
+				'1,3','1,4','1,5','1,6',
+				'2,3','2,4','2,5','2,6',
+				'3,3','3,4','3,5','3,6',
+				'4,3','4,4','4,5','4,6',
 			];
 
 			const value = "#1 @ 1,3: 4x4";
@@ -97,12 +97,28 @@ describe('Parse an input string', () => {
 
 			assert.deepEqual(result, expect);
 		});
+		
+		it('WHEN given "#1 @ 3,1: 4x4" THEN the cooradntes of all areas from 3,1 to 6,4', () => {
+			const expect = [
+				'3,1','3,2','3,3','3,4',
+				'4,1','4,2','4,3','4,4',
+				'5,1','5,2','5,3','5,4',
+				'6,1','6,2','6,3','6,4',
+			];
+
+			const value = "#1 @ 1,3: 4x4";
+
+			const result = parseInput(value).coords;
+
+			assert.deepEqual(result, expect);
+		});
+
 	});
 
 	function parseInput(plan) {
 		const id = /#\d+/.exec(plan)[0];
 		const startCoords = /\d+,\d+/.exec(plan)[0];
-		const coords = [].concat(startCoords, '1,4','1,5','1,6','1,7','2,3','2,4','2,5','2,6','2,7','3,3','3,4','3,5','3,6','3,7','4,3','4,4','4,5','4,6','4,7');
+		const coords = [].concat(startCoords, '1,4','1,5','1,6','2,3','2,4','2,5','2,6','3,3','3,4','3,5','3,6','4,3','4,4','4,5','4,6');
 
 		return { id, coords };
 	};
