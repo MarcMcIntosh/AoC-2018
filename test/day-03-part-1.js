@@ -47,11 +47,16 @@ const EXAMPLE_INPUT = [ '#1 @ 1,3: 4x4', '#2 @ 3,1: 4x4', '#3 @ 5,5: 2x2'];
 const EXECTED_OUTPUT = 2;
 
 describe('Parse an input string', () => {
-  it('When given #1 @ 1,3: 4x4 the returned id should be #1', () => {
-    const expect = '#1';
-    const value '#1 @ 1,3: 4x4';
+	it('When given #1 @ 1,3: 4x4 the returned id should be #1', () => {
+		const expect = '#1';
+		const value = '#1 @ 1,3: 4x4';
 
-    assert.euqal(parseInput(value), expect);
-    
-  });
-})
+		assert.equal(parseInput(value), expect);
+	});
+
+	function parseInput() {
+		return '#1';
+	};
+
+
+});
