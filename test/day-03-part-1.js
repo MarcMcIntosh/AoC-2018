@@ -64,7 +64,7 @@ describe('Parse an input string', () => {
         	});
 	});
 
-	describe('Parseing starting coordantes', () => {
+	describe('Parse starting coordantes', () => {
 		it('When given an imput string #1 @ 1,3: 4x4 shoud return the starting coordantes of occupied spaces [1, 3]', () => {
 			const expect = '1,3';
 			const value = '#1 @ 1,3: 4x4';
