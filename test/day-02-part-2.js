@@ -38,4 +38,21 @@ describe('Day 2: part 2', () => {
 			assert.equal(expect, result);
 		});
 	});
+
+	describe('When given an array of box ids, it should filter out ids that are diffrent by more than one letter', () => {
+		const expect = EXAMPLE_VALID_IDS;
+		const boxIds = EXAMPLE_IDS;
+
+		assert.deepEqual(solution(boxIds), expect);
+
+		function solution(arrayOfIds) {
+			return arrayOfIds.filter((boxId, index, arr) => {
+				let found = false;
+				for(let i = 0; i < arr.length && !found; i++) {
+					if( i !== index && diffrentByOneLetter(boxId, arr[i])) { found = true; }
+				}
+				return found;
+			});
+		}
+	});
 });
