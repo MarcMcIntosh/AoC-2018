@@ -56,6 +56,12 @@ describe('Day 2: part 2', () => {
 			const expect = EXAMPLE_RESULT;
 
 			assert.equal(solution(value), expect);
+
+			function solution(boxIds) {
+				const matchingIds = filterByLetterDiffrence(boxIds);
+				const [word1, word2] = matchingIds;
+				return sharedLetters(word1, word2);
+			}
 		});
 	});
 });
