@@ -43,6 +43,7 @@ If the Elves all proceed with their own plans, none of them will have enough fab
 How many square inches of fabric are within two or more claims?
 */
 const assert = require('assert');
+const parseInput = require('../src/day-03/parseInput');
 const EXAMPLE_INPUT = [ '#1 @ 1,3: 4x4', '#2 @ 3,1: 4x4', '#3 @ 5,5: 2x2'];
 const EXECTED_OUTPUT = 2;
 
@@ -114,31 +115,5 @@ describe('Parse an input string', () => {
 		});
 
 	});
-
-	function parseInput(plan) {
-		const id = /#\d+/.exec(plan)[0];
-		const startCoords = /\d+,\d+/.exec(plan)[0].split(',').map(d => +d);
-
-		const [ startX, startY ] = startCoords;
-		const coords = [];
-		const [ endX, endY ] = /\d+x\d+/.exec(plan)[0].split('x').map(d => +d);
-
-		for (let x = 0; x < endX; x+=1) {
-			
-			const currentX = startX + x;
-
-			for(let y = 0; y < endY; y+=1) {
-				
-				const currentY = startY + y;
-				const XYstring = currentX + ',' + currentY;
-				
-				coords.push(XYstring);
-			}
-		}
-
-		// const coords = [].concat(startCoords.toString(), '1,4','1,5','1,6','2,3','2,4','2,5','2,6','3,3','3,4','3,5','3,6','4,3','4,4','4,5','4,6');
-
-		return { id, coords };
-	};
 
 });
