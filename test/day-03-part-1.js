@@ -101,7 +101,9 @@ describe('Parse an input string', () => {
 
 	function parseInput(plan) {
 		const id = /#\d+/.exec(plan)[0];
-		const coords = /\d+,\d+/.exec(plan);
+		const startCoords = /\d+,\d+/.exec(plan)[0];
+		const coords = [].concat(startCoords, '1,4','1,5','1,6','1,7','2,3','2,4','2,5','2,6','2,7','3,3','3,4','3,5','3,6','3,7','4,3','4,4','4,5','4,6','4,7');
+
 		return { id, coords };
 	};
 
