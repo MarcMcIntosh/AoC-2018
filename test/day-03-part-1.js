@@ -106,7 +106,7 @@ describe('Parse an input string', () => {
 				'6,1','6,2','6,3','6,4',
 			];
 
-			const value = "#1 @ 1,3: 4x4";
+			const value = "#2 @ 3,1: 4x4";
 
 			const result = parseInput(value).coords;
 
@@ -119,7 +119,24 @@ describe('Parse an input string', () => {
 		const id = /#\d+/.exec(plan)[0];
 		const startCoords = /\d+,\d+/.exec(plan)[0].split(',').map(d => +d);
 
-		const coords = [].concat(startCoords.toString(), '1,4','1,5','1,6','2,3','2,4','2,5','2,6','3,3','3,4','3,5','3,6','4,3','4,4','4,5','4,6');
+		const [ startX, startY ] = startCoords;
+		const coords = [];
+		const [ endX, endY ] = /\d+x\d+/.exec(plan)[0].split('x').map(d => +d);
+
+		for (let x = 0; x < endX; x+=1) {
+			
+			const currentX = startX + x;
+
+			for(let y = 0; y < endY; y+=1) {
+				
+				const currentY = startY + y;
+				const XYstring = currentX + ',' + currentY;
+				
+				coords.push(XYstring);
+			}
+		}
+
+		// const coords = [].concat(startCoords.toString(), '1,4','1,5','1,6','2,3','2,4','2,5','2,6','3,3','3,4','3,5','3,6','4,3','4,4','4,5','4,6');
 
 		return { id, coords };
 	};
