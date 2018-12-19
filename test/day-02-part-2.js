@@ -40,12 +40,22 @@ describe('Day 2: part 2', () => {
 		});
 	});
 
-	describe('When given an array of box ids, it should filter out ids that are diffrent by more than one letter', () => {
-		const expect = EXAMPLE_VALID_IDS;
-		const boxIds = EXAMPLE_IDS;
+	describe('BoxId filter', () => {
+		it('When given an array of box ids, it should filter out ids that are diffrent by more than one letter', () => {
+			const expect = EXAMPLE_VALID_IDS;
+			const boxIds = EXAMPLE_IDS;
 
-		assert.deepEqual(filterByLetterDiffrence(boxIds), expect);
+			assert.deepEqual(filterByLetterDiffrence(boxIds), expect);
+		});
+	});
 
+	describe('Find the boxIds diffrent by one letter, and return the letters incomon', () => {
 
+		it('WHEN given ids: ' + EXAMPLE_IDS + '\nTHEN return ' + EXAMPLE_RESULT, () => {
+			const value = EXAMPLE_IDS;
+			const expect = EXAMPLE_RESULT;
+
+			assert.equal(solution(value), expect);
+		});
 	});
 });
