@@ -66,7 +66,7 @@ describe('Parse an input string', () => {
 
 	describe('Parseing starting coordantes', () => {
 		it('When given an imput string #1 @ 1,3: 4x4 shoud return the starting coordantes of occupied spaces [1, 3]', () => {
-			const expect = [1,3];
+			const expect = '1,3';
 			const value = '#1 @ 1,3: 4x4';
 			const result = parseInput(value).coords[0];
 
@@ -74,7 +74,7 @@ describe('Parse an input string', () => {
 		});
 	
 		it('When given an imput string #2 @ 3,1: 4x4 shoud return the starting coordantes of occupied spaces [3,3]', () => {
-			const expect = [3,1];
+			const expect = '3,1';
 			const value = '#2 @ 3,1: 4x4';
 			const result = parseInput(value).coords[0];
 
@@ -84,8 +84,7 @@ describe('Parse an input string', () => {
 
 	function parseInput(plan) {
 		const id = /#\d+/.exec(plan)[0];
-		const [startX, startY ] = /\d+,\d+/.exec(plan)[0].split(',').map(d => +d);
-		const coords = [ [ startX, startY ] ];
+		const coords = /\d+,\d+/.exec(plan);
 		return { id, coords };
 	};
 
