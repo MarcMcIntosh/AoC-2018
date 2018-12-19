@@ -61,13 +61,23 @@ describe('Parse an input string', () => {
                 assert.equal(parseInput(value).id, expect);
         });
 
-	it('When given an imput string it shoud return the starting coordantes of occupied spaces', () => {
+	it('When given an imput string #1 @ 1,3: 4x4 shoud return the starting coordantes of occupied spaces [1, 3]', () => {
 		const expect = [1,3];
 		const value = '#1 @ 1,3: 4x4';
 		const result = parseInput(value).coords[0];
 
 		assert.deepEqual(result, expect);
 	});
+	
+	it('When given an imput string #2 @ 3,1: 4x4 shoud return the starting coordantes of occupied spaces [3,3]', () => {
+		const expect = [3,1];
+		const value = '#2 @ 3,1: 4x4';
+		const result = parseInput(value).coords[0];
+
+		assert.deepEqual(result, expect);
+	});
+
+
 
 	function parseInput(plan) {
 		const id = /#\d+/.exec(plan)[0];
