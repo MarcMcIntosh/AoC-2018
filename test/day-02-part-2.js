@@ -1,6 +1,7 @@
 const assert = require('assert');
 const diffrentByOneLetter = require('../src/day-02/diffrentByOneLetter');
 const sharedLetters = require('../src/day-02/sharedLetters');
+const filterByLetterDiffrence = require('../src/day-02/filterByLetterDiffrence');
 // TEST CASES
 const EXAMPLE_IDS = [ 'abcde', 'fghij', 'klmno', 'pqrst', 'fguij', 'axcye', 'wvxyz'];
 const EXAMPLE_RESULT = 'fgij' // These are the letters in common from ids that differ by one letter
@@ -43,16 +44,8 @@ describe('Day 2: part 2', () => {
 		const expect = EXAMPLE_VALID_IDS;
 		const boxIds = EXAMPLE_IDS;
 
-		assert.deepEqual(solution(boxIds), expect);
+		assert.deepEqual(filterByLetterDiffrence(boxIds), expect);
 
-		function solution(arrayOfIds) {
-			return arrayOfIds.filter((boxId, index, arr) => {
-				let found = false;
-				for(let i = 0; i < arr.length && !found; i++) {
-					if( i !== index && diffrentByOneLetter(boxId, arr[i])) { found = true; }
-				}
-				return found;
-			});
-		}
+
 	});
 });
