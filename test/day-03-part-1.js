@@ -54,6 +54,14 @@ describe('Parse an input string', () => {
 		assert.equal(parseInput(value), expect);
 	});
 
+	 it('When given #2 @ 3,1: 4x4 the returned id should be #2', () => {
+                const expect = '#1';
+                const value = '#2 @ 3,1: 4x4';
+
+                assert.equal(parseInput(value), expect);
+        });
+
+
 	function parseInput() {
 		return '#1';
 	};
