@@ -84,7 +84,8 @@ describe('Parse an input string', () => {
 
 	function parseInput(plan) {
 		const id = /#\d+/.exec(plan)[0];
-		const coords = [ [1,3] ];
+		const [startX, startY ] = /\d+,\d+/.exec(plan)[0].split(',').map(d => +d);
+		const coords = [ [ startX, startY ] ];
 		return { id, coords };
 	};
 
