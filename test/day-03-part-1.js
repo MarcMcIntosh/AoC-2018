@@ -47,7 +47,7 @@ const parseInput = require('../src/day-03/parseInput');
 const EXAMPLE_INPUT = [ '#1 @ 1,3: 4x4', '#2 @ 3,1: 4x4', '#3 @ 5,5: 2x2'];
 const EXECTED_OUTPUT = 2;
 
-describe('Parse an input string', () => {
+describe('Day 3 part 1: Parse an input string', () => {
 
 	describe('Pasring id', () => {
 		it('When given #1 @ 1,3: 4x4 the returned id should be #1', () => {
