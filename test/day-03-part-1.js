@@ -142,6 +142,54 @@ describe('Day 3 part 1: Finding the number of conflicting coordates', () => {
 		}); 
 	});
 
+	describe('coordHashMap', () => {
+		const value = [ 
+			'1,3','1,4','1,5','1,6',
+                        '2,3','2,4','2,5','2,6',
+                        '3,3','3,4','3,5','3,6',
+                        '4,3','4,4','4,5','4,6',
+                        '3,1','3,2','3,3','3,4',
+                        '4,1','4,2','4,3','4,4',
+                        '5,1','5,2','5,3','5,4',
+                        '6,1','6,2','6,3','6,4',
+                ];
+
+		it("WHEN given an array of coords: " + value + " it should return an object WHERE each coorate is a key, with a value of the number of times the coordante is in the array", () => {
+			const expect = {
+				'1,3': 1,
+				'1,4': 1,
+				'1,5': 1,
+				'1,6': 1,
+				'2,3': 1,
+				'2,4': 1,
+				'2,5': 1,
+				'2,6': 1,
+                        	'3,3': 2,
+				'3,4': 2,
+				'3,5': 1,
+				'3,6': 1,
+				'4,3': 2,
+				'4,4': 2,
+				'4,5': 1,
+				'4,6': 1,
+				'3,1': 1,
+				'3,2': 1,
+				'4,1': 1,
+				'4,2': 1,
+				'5,1': 1,
+				'5,2': 1,
+				'5,3': 1,
+				'5,4': 1,
+				'6,1': 1,
+				'6,2': 1,
+				'6,3': 1,
+				'6,4': 1,
+			}
+
+			assert.deepEqual(coordsHashMap(value), expect);
+		});
+	});
+
 	it("WHEN GIVEN [ '#1 @ 1,3: 4x4', '#2 @ 3,1: 4x4', '#3 @ 5,5: 2x2 ]' the answer should be 4", () => {
 		const expect = 4;
 		const value = EXAMPLE_INPUT;
