@@ -46,6 +46,7 @@ const assert = require('assert');
 const parseInput = require('../src/day-03/parseInput');
 const getAllCoords = require('../src/day-03/getAllCoords');
 const coordsHashMap = require('../src/day-03/coordsHashMap');
+const duplicatedCoords = require('../src/day-03/duplicatedCoords');
 
 const EXAMPLE_INPUT = [ '#1 @ 1,3: 4x4', '#2 @ 3,1: 4x4', '#3 @ 5,5: 2x2'];
 const EXECTED_OUTPUT = 2;
@@ -198,7 +199,9 @@ describe('Day 3 part 1: Finding the number of conflicting coordates', () => {
 
 			assert.deepEqual(duplicatedCoords(value), expect);
 		});
+
 	});
+
 
 	it("WHEN GIVEN [ '#1 @ 1,3: 4x4', '#2 @ 3,1: 4x4', '#3 @ 5,5: 2x2 ]' the answer should be 4", () => {
 		const expect = 4;
