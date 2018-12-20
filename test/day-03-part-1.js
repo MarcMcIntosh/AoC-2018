@@ -45,6 +45,7 @@ How many square inches of fabric are within two or more claims?
 const assert = require('assert');
 const parseInput = require('../src/day-03/parseInput');
 const getAllCoords = require('../src/day-03/getAllCoords');
+const coordsHashMap = require('../src/day-03/coordsHashMap');
 
 const EXAMPLE_INPUT = [ '#1 @ 1,3: 4x4', '#2 @ 3,1: 4x4', '#3 @ 5,5: 2x2'];
 const EXECTED_OUTPUT = 2;
@@ -190,6 +191,15 @@ describe('Day 3 part 1: Finding the number of conflicting coordates', () => {
 		});
 	});
 
+	describe('Duplicated coords', () => {
+		it('should only return and array of keys from a hash map that have a value of more than 1', () => {
+			const value = { '1,1': 1, '2,1': 2 }
+			const expect = [ '2,1' ];
+
+			assert.deepEqual(duplicatedCoords(value), expect);
+		});
+	});
+
 	it("WHEN GIVEN [ '#1 @ 1,3: 4x4', '#2 @ 3,1: 4x4', '#3 @ 5,5: 2x2 ]' the answer should be 4", () => {
 		const expect = 4;
 		const value = EXAMPLE_INPUT;
@@ -198,13 +208,7 @@ describe('Day 3 part 1: Finding the number of conflicting coordates', () => {
 
 		function numberOfConflicts(plan) {
 			const allCoords = getAllCoords(plan);
-			const occuranceHashMap = allCoords.reduce((acc, coord) => {
-				const hasCoord = acc.hasOwnProperty(coord);
-				
-				acc[coord] = (hasCoord) ? (acc[coord] + 1) : 1;
-					return acc;
-			}, {});
-
+			const occuranceHashMap = coordsHashMap(allCoords);
 
 			const duplcatedCoords = Object.keys(occuranceHashMap).filter(d => occuranceHashMap[d] !== 1);			
 			return duplcatedCoords.length;
