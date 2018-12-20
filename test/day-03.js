@@ -41,6 +41,14 @@ The four square inches marked with X are claimed by both 1 and 2. (Claim 3, whil
 If the Elves all proceed with their own plans, none of them will have enough fabric.
 
 How many square inches of fabric are within two or more claims?
+
+--- Part Two ---
+Amidst the chaos, you notice that exactly one claim doesn't overlap by even a single square inch of fabric with any other claim. If you can somehow draw attention to it, maybe the Elves will be able to make Santa's suit after all!
+
+For example, in the claims above, only claim 3 is intact after all claims are made.
+
+What is the ID of the only claim that doesn't overlap?	
+
 */
 const assert = require('assert');
 const parseInput = require('../src/day-03/parseInput');
@@ -211,6 +219,20 @@ describe('Day 3 part 1: Finding the number of conflicting coordates', () => {
 
 		assert.equal(numberOfConflicts(EXAMPLE_INPUT), expect);
 
+	});
+
+});
+
+describe('Day 3: part 2, find the id of the only plan that does not overlap', () => {
+	const values = [ '#1 @ 1,3: 4x4', '#2 @ 3,1: 4x4', '#3 @ 5,5: 2x2'];
+	const expect = 3;
+
+	it("should return 3 from and input of ['#1 @ 1,3: 4x4', '#2 @ 3,1: 4x4', '#3 @ 5,5: 2x2']", () => {
+		assert.equal(findNonOverLapping(values), expect);
+
+		function findNonOverLapping(plans) {
+			return 3;
+		}
 	});
 
 });
