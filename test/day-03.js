@@ -56,7 +56,7 @@ const getAllCoords = require('../src/day-03/getAllCoords');
 const coordsHashMap = require('../src/day-03/coordsHashMap');
 const duplicatedCoords = require('../src/day-03/duplicatedCoords');
 const numberOfConflicts = require('../src/day-03/numberOfConflicts');
-
+const findNonOverLapping = require('../src/day-03/nonOverLapping');
 
 const EXAMPLE_INPUT = [ '#1 @ 1,3: 4x4', '#2 @ 3,1: 4x4', '#3 @ 5,5: 2x2'];
 const EXECTED_OUTPUT = 2;
@@ -229,28 +229,6 @@ describe('Day 3: part 2, find the id of the only plan that does not overlap', ()
 
 	it("should return 3 from and input of ['#1 @ 1,3: 4x4', '#2 @ 3,1: 4x4', '#3 @ 5,5: 2x2']", () => {
 		assert.equal(findNonOverLapping(values), expect);
-
-		function findNonOverLapping(plans) {
-			const allCoords = getAllCoords(plans);
-			
-			const hashMap = coordsHashMap(allCoords);
-			const allPlans = plans.map(parseInput);
-
-			const nonOverLapping = allPlans.filter((plan) => {
-				let good = true;
-				for(let i = 0; i < plan.coords.length && true; i+=1) {
-					const coord = plan.coords[i];
-					if (hashMap[coord] > 1) { 
-						good = false;
-					}
-				}
-				return good;
-			});
-
-
-			const [ bestPlan ] = nonOverLapping;
-			return bestPlan.id;
-		}
 	});
 
 });
