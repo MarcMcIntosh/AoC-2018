@@ -132,4 +132,4 @@ describe('Day 3 part 1: Finding the number of conflicting coordates', () => {
 
 	});
 
-});
+
