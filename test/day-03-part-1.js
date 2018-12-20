@@ -213,8 +213,8 @@ describe('Day 3 part 1: Finding the number of conflicting coordates', () => {
 			const allCoords = getAllCoords(plan);
 			const occuranceHashMap = coordsHashMap(allCoords);
 
-			const duplcatedCoords = Object.keys(occuranceHashMap).filter(d => occuranceHashMap[d] !== 1);			
-			return duplcatedCoords.length;
+			const arrayOfDuplicates = duplicatedCoords(occuranceHashMap);			
+			return arrayOfDuplicates.length;
 		}
 
 	});
