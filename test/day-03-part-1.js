@@ -120,16 +120,30 @@ describe('Day 3 part 1: Parse an input string', () => {
 
 describe('Day 3 part 1: Finding the number of conflicting coordates', () => {
 
+
 	it("WHEN GIVEN [ '#1 @ 1,3: 4x4', '#2 @ 3,1: 4x4', '#3 @ 5,5: 2x2 ]' the answer should be 4", () => {
 		const expect = 4;
 		const value = EXAMPLE_INPUT;
 
 		assert.equal(numberOfConflicts(EXAMPLE_INPUT), expect);
 
-		function numberOfConflicts() {
-			return 4;
+		function numberOfConflicts(plan) {
+			const confilcts = [];
+
+			const allCoords = plan.map(d => parseInput(d).coords).reduce((acc, current) => {
+				return acc.concat(current);
+			}, []);
+			const occuranceHashMap = allCoords.reduce((acc, coord) => {
+				const hasCoord = acc.hasOwnProperty(coord);
+
+				acc[coord] = (hasCoord) ? (acc[coord] + 1) : 1;
+				return acc;
+			}, {});
+
+			const duplcatedCoords = Object.keys(occuranceHashMap).filter(d => occuranceHashMap[d] !== 1);			
+			return duplcatedCoords.length;
 		}
 
 	});
 
-
+});
