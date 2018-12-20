@@ -1,6 +1,7 @@
 function parseInput(plan) {
 
-	const id = /#\d+/.exec(plan)[0];
+	const idWithHash = /#\d+/.exec(plan)[0];
+	const id = +idWithHash.replace('#','');
 	const startCoords = /\d+,\d+/.exec(plan)[0].split(',').map(d => +d);
 
 	const [ startX, startY ] = startCoords;

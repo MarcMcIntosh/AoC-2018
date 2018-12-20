@@ -50,15 +50,15 @@ const EXECTED_OUTPUT = 2;
 describe('Day 3 part 1: Parse an input string', () => {
 
 	describe('Pasring id', () => {
-		it('When given #1 @ 1,3: 4x4 the returned id should be #1', () => {
-			const expect = '#1';
+		it('When given #1 @ 1,3: 4x4 the returned id should be 1', () => {
+			const expect = 1;
 			const value = '#1 @ 1,3: 4x4';
 
 			assert.equal(parseInput(value).id, expect);
 		});
 
-		it('When given #2 @ 3,1: 4x4 the returned id should be #2', () => {
-                	const expect = '#2';
+		it('When given #2 @ 3,1: 4x4 the returned id should be 2', () => {
+                	const expect = 2;
                 	const value = '#2 @ 3,1: 4x4';
 
                 	assert.equal(parseInput(value).id, expect);
@@ -117,3 +117,5 @@ describe('Day 3 part 1: Parse an input string', () => {
 	});
 
 });
+
+
