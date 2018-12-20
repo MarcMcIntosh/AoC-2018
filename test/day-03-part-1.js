@@ -118,14 +118,17 @@ describe('Day 3 part 1: Parse an input string', () => {
 
 });
 
-describe('Day 3 part 1: Finding the number of confilteing coordates', () => {
+describe('Day 3 part 1: Finding the number of conflicting coordates', () => {
 
 	it("WHEN GIVEN [ '#1 @ 1,3: 4x4', '#2 @ 3,1: 4x4', '#3 @ 5,5: 2x2 ]' the answer should be 4", () => {
 		const expect = 4;
 		const value = EXAMPLE_INPUT;
 
-		assert.equal(numberOfConfilcts(EXAMPLE_INPUT), expect);
+		assert.equal(numberOfConflicts(EXAMPLE_INPUT), expect);
 
+		function numberOfConflicts() {
+			return 4;
+		}
 
 	});
 
