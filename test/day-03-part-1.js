@@ -44,6 +44,8 @@ How many square inches of fabric are within two or more claims?
 */
 const assert = require('assert');
 const parseInput = require('../src/day-03/parseInput');
+const getAllCoords = require('../src/day-03/getAllCoords');
+
 const EXAMPLE_INPUT = [ '#1 @ 1,3: 4x4', '#2 @ 3,1: 4x4', '#3 @ 5,5: 2x2'];
 const EXECTED_OUTPUT = 2;
 
@@ -120,6 +122,25 @@ describe('Day 3 part 1: Parse an input string', () => {
 
 describe('Day 3 part 1: Finding the number of conflicting coordates', () => {
 
+	describe('getAllCoords from input array', () => {
+		it("When given  [ '#1 @ 1,3: 4x4', '#2 @ 3,1: 4x4' ], it should return all of the occpided coordantes an an array", () => {
+			const expect = [
+				'1,3','1,4','1,5','1,6',
+                                '2,3','2,4','2,5','2,6',
+                                '3,3','3,4','3,5','3,6',
+                                '4,3','4,4','4,5','4,6',
+				'3,1','3,2','3,3','3,4',
+                                '4,1','4,2','4,3','4,4',
+                                '5,1','5,2','5,3','5,4',
+                                '6,1','6,2','6,3','6,4',
+			];
+
+			const value =  [ '#1 @ 1,3: 4x4', '#2 @ 3,1: 4x4' ];
+
+			assert.deepEqual(getAllCoords(value), expect);
+	
+		}); 
+	});
 
 	it("WHEN GIVEN [ '#1 @ 1,3: 4x4', '#2 @ 3,1: 4x4', '#3 @ 5,5: 2x2 ]' the answer should be 4", () => {
 		const expect = 4;
@@ -128,17 +149,14 @@ describe('Day 3 part 1: Finding the number of conflicting coordates', () => {
 		assert.equal(numberOfConflicts(EXAMPLE_INPUT), expect);
 
 		function numberOfConflicts(plan) {
-			const confilcts = [];
-
-			const allCoords = plan.map(d => parseInput(d).coords).reduce((acc, current) => {
-				return acc.concat(current);
-			}, []);
+			const allCoords = getAllCoords(plan);
 			const occuranceHashMap = allCoords.reduce((acc, coord) => {
 				const hasCoord = acc.hasOwnProperty(coord);
-
+				
 				acc[coord] = (hasCoord) ? (acc[coord] + 1) : 1;
-				return acc;
+					return acc;
 			}, {});
+
 
 			const duplcatedCoords = Object.keys(occuranceHashMap).filter(d => occuranceHashMap[d] !== 1);			
 			return duplcatedCoords.length;
