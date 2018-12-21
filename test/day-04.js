@@ -206,4 +206,39 @@ describe('Day 04 Part 1', () => {
 		});
 		
 	});
+
+	describe("Generate a hash map of guards, and how offten they where alseep at what times", () => {
+		const value = [{
+			id: 1,
+			sleeps: [[1, 3], [4, 6]],
+		}, {
+			id: 2,
+			sleeps: [[1, 3]],
+		}, {
+			id: 1,
+			sleeps: [[2, 3]], 
+		}];
+
+		const expect = {
+			1: {
+				1: 1,
+				2: 2,
+				4: 1,
+				6: 1,
+			},
+			2: {
+				1: 1,
+				2: 1,
+			},
+		};
+
+		it('When given a parsed sleep pattern it should return an object of ids: with a hashMap of the minutes slept on shift for each elev', () => {
+
+			assert.deepEqual(guardsSleepingPattern(value), expect);
+		});
+
+		function guardsSleepingPattern(arrayOfShifts) {
+			return arrayOfShifts;
+		}
+	});
 });
