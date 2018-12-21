@@ -51,6 +51,7 @@ What is the ID of the guard you chose multiplied by the minute you chose? (In th
 
 const assert = require('assert');
 const getGuardNumber = require('../src/day-04/getGuardNumber');
+const getRecordsWhere = require('../src/day-04/getRecordsWhere');
 
 const STUB_INPUT = [
 	"[1518-11-01 00:00] Guard #10 begins shift",
@@ -113,8 +114,8 @@ describe('Day 04 Part 1', () => {
 				assert.deepEqual(getMinutesAsleep(value), expect);
 			}); 
 
-			describe("getStartSleep", () => {
-				it('Should return an array of time the guard started sleeping at', () => {
+			describe("getRecordsWhere: ", () => {
+				it('Should return an array of records in which the guard started sleeping at', () => {
 					const value = [
 						"[1518-11-01 00:05] falls asleep",
 						"[1518-11-01 00:25] wakes up",
@@ -122,11 +123,31 @@ describe('Day 04 Part 1', () => {
 						"[1518-11-01 00:55] wakes up",
 					];
 
-					const expect = [5, 30]
+				        const expect = [
+                                                "[1518-11-01 00:05] falls asleep",
+                                                "[1518-11-01 00:30] falls asleep",
+                                        ];
 
-					assert.deepEqual(getStartSleep(value), expect);
 
 
+					
+					assert.deepEqual(getRecordsWhere(value, "falls"), expect);
+
+				});
+
+				it('Should return an array of record sin which the guard woke up', () => {
+					const value = [
+						"[1518-11-01 00:05] falls asleep",
+                                                "[1518-11-01 00:25] wakes up",
+                                                "[1518-11-01 00:30] falls asleep",
+                                                "[1518-11-01 00:55] wakes up",
+					];
+					const expect = [
+                                                "[1518-11-01 00:25] wakes up",
+                                                "[1518-11-01 00:55] wakes up",
+					];
+
+					assert.deepEqual(getRecordsWhere(value, "wakes"), expect);
 
 				});
 			});
