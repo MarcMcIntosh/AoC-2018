@@ -54,7 +54,7 @@ const getGuardNumber = require('../src/day-04/getGuardNumber');
 const getRecordsWhere = require('../src/day-04/getRecordsWhere');
 const sortByTime = require('../src/day-04/sortByTime');
 const getMinutes = require('../src/day-04/getMinutes');
-
+const parseRecords = require('../src/day-04/parseRecords');
 
 const STUB_INPUT = [
 	"[1518-11-01 00:00] Guard #10 begins shift",
@@ -201,29 +201,7 @@ describe('Day 04 Part 1', () => {
 				}];
 
 				assert.deepEqual(parseRecords(value), expect);
-			});
-
-			function parseRecords(records) {
-				const shiftsAsString = records.join('\n').split('Guard').slice(1);
-				const shiftObjects = shiftsAsString.map((shiftString) => {
-					const id = getGuardNumber(shiftString);
-					const shiftArray = shiftString.split('\n');
-					const wakes = getRecordsWhere(shiftArray, 'wakes').map(getMinutes);
-					const fallsAsleep = getRecordsWhere(shiftArray, 'asleep').map(getMinutes);
-
-					const sleeps = [];
-					const maxLength = Math.max(wakes.length, fallsAsleep.length)
-					for(let i = 0; i < maxLength; i+=1) {
-						const cicle = [
-							fallsAsleep[i],
-							wakes[i],
-						]
-						sleeps.push(cicle);
-					}
-					return { id, sleeps };
-				});
-				return shiftObjects;
-			}
+			});			
 
 		});
 		
