@@ -53,6 +53,8 @@ const assert = require('assert');
 const getGuardNumber = require('../src/day-04/getGuardNumber');
 const getRecordsWhere = require('../src/day-04/getRecordsWhere');
 const sortByTime = require('../src/day-04/sortByTime');
+const getMinutes = require('../src/day-04/getMinutes');
+
 
 const STUB_INPUT = [
 	"[1518-11-01 00:00] Guard #10 begins shift",
@@ -118,15 +120,6 @@ describe('Day 04 Part 1', () => {
 				assert.equal(getMinutes(value), expect);
 			});
 
-			function getMinutes(record) {
-				const re = /:\d+/;
-				const arrayOrNull = re.exec(record);
-				if (arrayOrNull !== null) {
-					const numberAsString = arrayOrNull[0].substr(1);
-					return parseInt(numberAsString);
-				}
-				return 0;
-			}
 		});
 
 		describe('getGuardNumber', () => {
