@@ -50,6 +50,8 @@ What is the ID of the guard you chose multiplied by the minute you chose? (In th
 */
 
 const assert = require('assert');
+const getGuardNumber = require('../src/day-04/getGuardNumber');
+
 const STUB_INPUT = [
 	"[1518-11-01 00:00] Guard #10 begins shift",
 	"[1518-11-01 00:05] falls asleep",
@@ -98,20 +100,10 @@ describe('Day 04 Part 1', () => {
 			it('WHEN GIVEN "[1518-11-01 00:05] falls asleep" RETURN null', () => {
 				const value = "[1518-11-01 00:05] falls asleep";
 				const expect = null;
-
+				
 				assert.equal(getGuardNumber(value), expect);
 			});
 		});
-
-
-		function getGuardNumber(input) {
-			const regex = /#\d+/;
-			const match = regex.exec(input);
-			if (match === null) { return match; }
-			const numberWithLeadingHash = match[0];
-			const numberAsString = numberWithLeadingHash.substr(1);
-			return parseInt(numberAsString);
-		}
-		 
+	 
 	});
 });
