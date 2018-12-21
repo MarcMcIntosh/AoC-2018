@@ -94,6 +94,13 @@ describe('Day 04 Part 1', () => {
 				assert.equal(getGuardNumber(value), expect);
 			
 			});
+
+			it('WHEN GIVEN "[1518-11-01 00:05] falls asleep" RETURN null', () => {
+				const value = "[1518-11-01 00:05] falls asleep";
+				const expect = null;
+
+				assert.equal(getGuardNumber(value), expect);
+			});
 		});
 
 
