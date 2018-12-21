@@ -118,7 +118,13 @@ describe('Day 04 Part 1', () => {
 				assert.equal(getMinutes(value), expect);
 			});
 
-			function getMinutes() {
+			function getMinutes(record) {
+				const re = /:\d+/;
+				const arrayOrNull = re.exec(record);
+				if (arrayOrNull !== null) {
+					const numberAsString = arrayOrNull[0].substr(1);
+					return parseInt(numberAsString);
+				}
 				return 0;
 			}
 		});
