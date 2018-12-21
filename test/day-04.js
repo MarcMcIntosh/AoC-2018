@@ -97,7 +97,7 @@ describe('Day 04 Part 1', () => {
 			assert.deepEqual(sortByTime(value), expect);
 
 			function sortByTime(records) {
-				return records;
+				return records.sort();
 			}
 		});
 
