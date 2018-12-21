@@ -242,7 +242,7 @@ describe('Day 04 Part 1', () => {
 
 	describe('Which Guard slept the most', () => {
 
-		const value = EXMPLE_INPUT;
+		const value = STUB_INPUT;
 		const expect = 10;
 
 		assert.equal(guardThatSleptTheMost(value), expect);
