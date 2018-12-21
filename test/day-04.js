@@ -52,6 +52,7 @@ What is the ID of the guard you chose multiplied by the minute you chose? (In th
 const assert = require('assert');
 const getGuardNumber = require('../src/day-04/getGuardNumber');
 const getRecordsWhere = require('../src/day-04/getRecordsWhere');
+const sortByTime = require('../src/day-04/sortByTime');
 
 const STUB_INPUT = [
 	"[1518-11-01 00:00] Guard #10 begins shift",
@@ -95,10 +96,7 @@ describe('Day 04 Part 1', () => {
 			];
 
 			assert.deepEqual(sortByTime(value), expect);
-
-			function sortByTime(records) {
-				return records.sort();
-			}
+			
 		});
 
 
