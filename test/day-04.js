@@ -103,6 +103,17 @@ describe('Day 04 Part 1', () => {
 	});
 	describe('Parse Input', () => {
 
+		describe('Get minutes from input string', () => {
+			it('should return 0 when given [1518-11-01 00:00]', () => {
+				const value = '[1518-11-01 00:00]';
+				const expect = 0;
+
+				assert.equal(getMinutes(value), expect);
+			});
+
+			function getMinutes() {}
+		});
+
 		describe('getGuardNumber', () => {
 			
 			it('WHEN GIVEN "[1518-11-01 00:00] Guard #10 begins shift" RETURN 10', () => {
