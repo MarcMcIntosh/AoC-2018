@@ -1,8 +1,8 @@
 function guardsSleepingPattern(arrayOfShifts) {
 	const hashMap = {};
 
-	for(let shiftIndex = 0; i < arrayOfShifts.length; i += 1) {
-		const { id, sleeps: [ start, end ] } = arrayOfShifts[i];
+	for(let shiftIndex = 0; shiftIndex < arrayOfShifts.length; shiftIndex += 1) {
+		const { id, sleeps: [ start, end ] } = arrayOfShifts[shiftIndex];
 		
 		if(!hashMap[id]) {
 			hashMap[id] = {}
@@ -10,9 +10,9 @@ function guardsSleepingPattern(arrayOfShifts) {
 
 		for(let minute = start; minute < end; minute += 1) {
 			if(hashMap[id][minute]) {
-				hashMap[id][i] += 1;
+				hashMap[id][minute] += 1;
 			} else {
-				hashMap[id][i] = 1;
+				hashMap[id][minute] = 1;
 			}
 		}
 	}

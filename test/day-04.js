@@ -240,15 +240,34 @@ describe('Day 04 Part 1', () => {
 
 	});
 
-	describe('Which Guard slept the most', () => {
+	/* describe('Which Guard slept the most', () => {
 
 		const value = STUB_INPUT;
 		const expect = 10;
 
 		assert.equal(guardThatSleptTheMost(value), expect);
 
-		function guardThatSleptTheMost() {
-			return;
+		function sumSleepForEach(hashMap) {
+			return Object.keys(hashMap).map(id => totalSleepForEach(hashMap, id));
 		}
-	});
+		function totalSleepForEach(hashMap, id) {
+			const guardsShift = Object.values(hashMap[id]);
+			const total = guardsShift.reduce((a, b) => a + b, 0);
+			return { id, total };
+		}
+
+		function guardThatSleptTheMost(records) {
+			const arrayOfShifts = parseRecords(records);
+			const hashMapOfGuardsSleep = guardsSleepingPattern(arrayOfShifts);
+			const totalForEach = sumSleepForEach(hashMapOfGuardsSleep);
+			console.log(totalForEach);
+			const sleptTheMost = totalForEach.reduce((a, b) => {
+				if (!a) { return b; }
+				if(a.total < b.total) { return b; }
+				return a;
+			});
+
+			return sleptTheMost[0];
+		}
+	}); */
 });
