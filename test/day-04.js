@@ -178,6 +178,38 @@ describe('Day 04 Part 1', () => {
 
 			});
 		});
+
+		describe('get the guard shift pattern', () => {
+			it('WHEN given a sorted array of shifts it should return the gurad id and an of records for each shift', () => {
+				const value = [
+					"[1518-11-01 00:00] Guard #10 begins shift",
+					"[1518-11-01 00:05] falls asleep",
+					"[1518-11-01 00:25] wakes up",
+					"[1518-11-01 00:30] falls asleep",
+					"[1518-11-01 00:55] wakes up",
+					"[1518-11-01 23:58] Guard #99 begins shift",
+					"[1518-11-02 00:40] falls asleep",
+					"[1518-11-02 00:50] wakes up",
+				];
+
+				const expect = [{
+					id: 10,
+					sleeps: [ [ 5, 25 ], [ 30, 55 ] ],
+				}, {
+					id: 99,
+					sleeps: [ [ 40, 50 ] ],
+				}];
+
+				assert.deepEqual(guardShift(value), expect);
+			});
+
+			function guardShift(records) {
+				return;
+			}
+
+
+
+		});
 		
 		describe('getMinutesAsleep', () => {
 			xit('WHEN GIVEN the input  [ "[1518-11-01 00:05] falls asleep", "[1518-11-01 00:25] wakes up", ] it should return all of the minute the guard was alssep for 5 to 24', () => {
