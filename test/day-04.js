@@ -221,6 +221,19 @@ describe('Day 04 Part 1', () => {
 		}];
 
 		const expect = {
+			1: {1: 1, 2: 2, 4: 1, 5: 1 },
+			2: { 1: 1, 2: 1 },
+		};
+
+		it('When given a parsed sleep pattern it should return an object of ids: with a hashMap of the minutes slept on shift for each elev', () => {
+
+			assert.deepEqual(guardsSleepingPattern(value), expect);
+		});
+
+	});
+
+	describe('get the total amoutn of time each guard slept', () => {
+		const value = {
 			1: {
 				1: 1,
 				2: 2,
@@ -233,10 +246,15 @@ describe('Day 04 Part 1', () => {
 			},
 		};
 
-		it('When given a parsed sleep pattern it should return an object of ids: with a hashMap of the minutes slept on shift for each elev', () => {
+		const expect = [ { id: 1, total: 5 }, { id: 2, total: 2 }];
 
-			assert.deepEqual(guardsSleepingPattern(value), expect);
+		it('Should return and array of objects with an id and the total the guard has slept on shift', () => {
+
+			assert.deepEqual(totalSleepForEach(value), expect);
+
 		});
+
+		function totalSleepForEach() {}
 
 	});
 
