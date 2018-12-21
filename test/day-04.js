@@ -88,7 +88,7 @@ describe('Day 04 Part 1', () => {
 				"[1518-11-01 00:25] wakes up",
 			];
 
-			const epxect = [
+			const expect = [
 				"[1518-11-01 00:00] Guard #10 begins shift",
         			"[1518-11-01 00:05] falls asleep",
         			"[1518-11-01 00:25] wakes up",
