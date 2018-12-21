@@ -78,12 +78,24 @@ describe('Day 04 Part 1', () => {
 
 	describe('Parse Input', () => {
 
-		it('Get guard number from "[1518-11-01 00:00] Guard #10 begins shift"', () => {
-			const value = "[1518-11-01 00:00] Guard #10 begins shift";
-			const expect = 10;
+		describe('getGuardNumber', () => {
+			
+			it('WHEN GIVEN "[1518-11-01 00:00] Guard #10 begins shift" RETURN 10', () => {
+				const value = "[1518-11-01 00:00] Guard #10 begins shift";
+				const expect = 10;
 
-			assert.equal(getGuardNumber(value), expect);
+				assert.equal(getGuardNumber(value), expect);
+			});
+
+			it('WHEN GIVEN "[1518-11-01 23:58] Guard #99 begins shift" RETURN 99', () => {
+				const value = "[1518-11-01 23:58] Guard #99 begins shift";
+				const expect = 99;
+
+				assert.equal(getGuardNumber(value), expect);
+			
+			});
 		});
+
 
 		function getGuardNumber() {
 			return 10;
