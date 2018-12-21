@@ -111,7 +111,16 @@ describe('Day 04 Part 1', () => {
 				assert.equal(getMinutes(value), expect);
 			});
 
-			function getMinutes() {}
+			it('should return 5 when given "[1518-11-01 00:05] falls asleep"', () => {
+				const value = '[1518-11-01 00:05] falls asleep';
+				const expect = 5;
+
+				assert.equal(getMinutes(value), expect);
+			});
+
+			function getMinutes() {
+				return 0;
+			}
 		});
 
 		describe('getGuardNumber', () => {
