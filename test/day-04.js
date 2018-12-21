@@ -55,6 +55,7 @@ const getRecordsWhere = require('../src/day-04/getRecordsWhere');
 const sortByTime = require('../src/day-04/sortByTime');
 const getMinutes = require('../src/day-04/getMinutes');
 const parseRecords = require('../src/day-04/parseRecords');
+const guardsSleepingPattern = require('../src/day-04/guardsSleepingPattern');
 
 const STUB_INPUT = [
 	"[1518-11-01 00:00] Guard #10 begins shift",
@@ -237,26 +238,5 @@ describe('Day 04 Part 1', () => {
 			assert.deepEqual(guardsSleepingPattern(value), expect);
 		});
 
-		function guardsSleepingPattern(arrayOfShifts) {
-			const hashMap = {};
-			arrayOfShifts.forEach(({id, sleeps}) => {
-				if (!hashMap[id]) {
-					hashMap[id] = {};
-				};
-
-				sleeps.forEach(([start, end]) => {
-					for(let i = start; i < end; i+=1) {
-						if(!hashMap[id][i]) {
-							hashMap[id][i] = 1;
-						} else {
-							hashMap[id][i] += 1;
-						}
-					}
-				});
-
-			});
-
-			return hashMap;
-		};
 	});
 });
