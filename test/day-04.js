@@ -200,33 +200,32 @@ describe('Day 04 Part 1', () => {
 					sleeps: [ [ 40, 50 ] ],
 				}];
 
-				assert.deepEqual(guardShift(value), expect);
+				assert.deepEqual(parseRecords(value), expect);
 			});
 
-			function guardShift(records) {
-				return;
+			function parseRecords(records) {
+				const shiftsAsString = records.join('\n').split('Guard').slice(1);
+				const shiftObjects = shiftsAsString.map((shiftString) => {
+					const id = getGuardNumber(shiftString);
+					const shiftArray = shiftString.split('\n');
+					const wakes = getRecordsWhere(shiftArray, 'wakes').map(getMinutes);
+					const fallsAsleep = getRecordsWhere(shiftArray, 'asleep').map(getMinutes);
+
+					const sleeps = [];
+					const maxLength = Math.max(wakes.length, fallsAsleep.length)
+					for(let i = 0; i < maxLength; i+=1) {
+						const cicle = [
+							fallsAsleep[i],
+							wakes[i],
+						]
+						sleeps.push(cicle);
+					}
+					return { id, sleeps };
+				});
+				return shiftObjects;
 			}
-
-
 
 		});
 		
-		describe('getMinutesAsleep', () => {
-			xit('WHEN GIVEN the input  [ "[1518-11-01 00:05] falls asleep", "[1518-11-01 00:25] wakes up", ] it should return all of the minute the guard was alssep for 5 to 24', () => {
-				const value =  [ "[1518-11-01 00:05] falls asleep", "[1518-11-01 00:25] wakes up"];
-				const expect = [ 5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24 ];
-
-				assert.deepEqual(getMinutesAsleep(value), expect);
-			}); 
-			
-			function getMinuteAsleep(input) {
-
-				const startSleepingAt = input.reduce((acc, curr) => {
-
-				});
-				return [ 5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24 ];
-			}
-
-		});
 	});
 });
