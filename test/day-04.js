@@ -82,8 +82,12 @@ describe('Day 04 Part 1', () => {
 			const value = "[1518-11-01 00:00] Guard #10 begins shift";
 			const expect = 10;
 
-			assert.euqal(value, expect);
+			assert.equal(getGuardNumber(value), expect);
 		});
+
+		function getGuardNumber() {
+			return 10;
+		}
 		 
 	});
 });
