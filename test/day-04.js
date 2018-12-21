@@ -79,6 +79,30 @@ const STUB_INPUT = [
 
 describe('Day 04 Part 1', () => {
 
+	describe('sortByTime: The input needs to be sorted', () => {
+
+		it('Should sort the records chronologically', () => {
+			const value = [
+				"[1518-11-01 00:05] falls asleep",
+				"[1518-11-01 00:00] Guard #10 begins shift",
+				"[1518-11-01 00:25] wakes up",
+			];
+
+			const epxect = [
+				"[1518-11-01 00:00] Guard #10 begins shift",
+        			"[1518-11-01 00:05] falls asleep",
+        			"[1518-11-01 00:25] wakes up",
+			];
+
+			assert.deepEqual(sortByTime(value), expect);
+
+			function sortByTime(records) {
+				return records;
+			}
+		});
+
+
+	});
 	describe('Parse Input', () => {
 
 		describe('getGuardNumber', () => {
@@ -105,7 +129,39 @@ describe('Day 04 Part 1', () => {
 				assert.equal(getGuardNumber(value), expect);
 			});
 		});
+		
+		describe("getRecordsWhere: ", () => {
+			
+			const value = [
+				"[1518-11-01 00:05] falls asleep",
+				"[1518-11-01 00:25] wakes up",
+				"[1518-11-01 00:30] falls asleep",
+				"[1518-11-01 00:55] wakes up"
+			];
 
+ 
+			it('Should return an array of records in which the guard started sleeping at', () => {
+				
+				const expect = [
+                                         "[1518-11-01 00:05] falls asleep",
+                                         "[1518-11-01 00:30] falls asleep",
+                                ];
+				
+				assert.deepEqual(getRecordsWhere(value, "falls"), expect);
+
+			});
+
+			it('Should return an array of record sin which the guard woke up', () => {
+				const expect = [
+                                        "[1518-11-01 00:25] wakes up",
+                                        "[1518-11-01 00:55] wakes up",
+				];
+
+				assert.deepEqual(getRecordsWhere(value, "wakes"), expect);
+
+			});
+		});
+		
 		describe('getMinutesAsleep', () => {
 			xit('WHEN GIVEN the input  [ "[1518-11-01 00:05] falls asleep", "[1518-11-01 00:25] wakes up", ] it should return all of the minute the guard was alssep for 5 to 24', () => {
 				const value =  [ "[1518-11-01 00:05] falls asleep", "[1518-11-01 00:25] wakes up"];
@@ -113,45 +169,7 @@ describe('Day 04 Part 1', () => {
 
 				assert.deepEqual(getMinutesAsleep(value), expect);
 			}); 
-
-			describe("getRecordsWhere: ", () => {
-				it('Should return an array of records in which the guard started sleeping at', () => {
-					const value = [
-						"[1518-11-01 00:05] falls asleep",
-						"[1518-11-01 00:25] wakes up",
-						"[1518-11-01 00:30] falls asleep",
-						"[1518-11-01 00:55] wakes up",
-					];
-
-				        const expect = [
-                                                "[1518-11-01 00:05] falls asleep",
-                                                "[1518-11-01 00:30] falls asleep",
-                                        ];
-
-
-
-					
-					assert.deepEqual(getRecordsWhere(value, "falls"), expect);
-
-				});
-
-				it('Should return an array of record sin which the guard woke up', () => {
-					const value = [
-						"[1518-11-01 00:05] falls asleep",
-                                                "[1518-11-01 00:25] wakes up",
-                                                "[1518-11-01 00:30] falls asleep",
-                                                "[1518-11-01 00:55] wakes up",
-					];
-					const expect = [
-                                                "[1518-11-01 00:25] wakes up",
-                                                "[1518-11-01 00:55] wakes up",
-					];
-
-					assert.deepEqual(getRecordsWhere(value, "wakes"), expect);
-
-				});
-			});
-
+			
 			function getMinuteAsleep(input) {
 
 				const startSleepingAt = input.reduce((acc, curr) => {
@@ -161,6 +179,5 @@ describe('Day 04 Part 1', () => {
 			}
 
 		});
-
 	});
 });
