@@ -224,7 +224,7 @@ describe('Day 04 Part 1', () => {
 				1: 1,
 				2: 2,
 				4: 1,
-				6: 1,
+				5: 1,
 			},
 			2: {
 				1: 1,
@@ -238,7 +238,25 @@ describe('Day 04 Part 1', () => {
 		});
 
 		function guardsSleepingPattern(arrayOfShifts) {
-			return arrayOfShifts;
-		}
+			const hashMap = {};
+			arrayOfShifts.forEach(({id, sleeps}) => {
+				if (!hashMap[id]) {
+					hashMap[id] = {};
+				};
+
+				sleeps.forEach(([start, end]) => {
+					for(let i = start; i < end; i+=1) {
+						if(!hashMap[id][i]) {
+							hashMap[id][i] = 1;
+						} else {
+							hashMap[id][i] += 1;
+						}
+					}
+				});
+
+			});
+
+			return hashMap;
+		};
 	});
 });
