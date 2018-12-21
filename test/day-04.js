@@ -106,12 +106,39 @@ describe('Day 04 Part 1', () => {
 		});
 
 		describe('getMinutesAsleep', () => {
-			it('WHEN GIVEN the input  [ "[1518-11-01 00:05] falls asleep", "[1518-11-01 00:25] wakes up", ] it should return all of the minute the guard was alssep for 5 to 24', () => {
+			xit('WHEN GIVEN the input  [ "[1518-11-01 00:05] falls asleep", "[1518-11-01 00:25] wakes up", ] it should return all of the minute the guard was alssep for 5 to 24', () => {
 				const value =  [ "[1518-11-01 00:05] falls asleep", "[1518-11-01 00:25] wakes up"];
 				const expect = [ 5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24 ];
 
-				assert.deepEqual(value, expect);
+				assert.deepEqual(getMinutesAsleep(value), expect);
+			}); 
+
+			describe("getStartSleep", () => {
+				it('Should return an array of time the guard started sleeping at', () => {
+					const value = [
+						"[1518-11-01 00:05] falls asleep",
+						"[1518-11-01 00:25] wakes up",
+						"[1518-11-01 00:30] falls asleep",
+						"[1518-11-01 00:55] wakes up",
+					];
+
+					const expect = [5, 30]
+
+					assert.deepEqual(getStartSleep(value), expect);
+
+
+
+				});
 			});
+
+			function getMinuteAsleep(input) {
+
+				const startSleepingAt = input.reduce((acc, curr) => {
+
+				});
+				return [ 5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24 ];
+			}
+
 		});
 
 	});
