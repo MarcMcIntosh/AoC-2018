@@ -104,6 +104,15 @@ describe('Day 04 Part 1', () => {
 				assert.equal(getGuardNumber(value), expect);
 			});
 		});
-	 
+
+		describe('getMinutesAsleep', () => {
+			it('WHEN GIVEN the input  [ "[1518-11-01 00:05] falls asleep", "[1518-11-01 00:25] wakes up", ] it should return all of the minute the guard was alssep for 5 to 24', () => {
+				const value =  [ "[1518-11-01 00:05] falls asleep", "[1518-11-01 00:25] wakes up"];
+				const expect = [ 5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24 ];
+
+				assert.deepEqual(value, expect);
+			});
+		});
+
 	});
 });
