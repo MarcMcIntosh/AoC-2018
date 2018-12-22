@@ -56,6 +56,7 @@ const sortByTime = require('../src/day-04/sortByTime');
 const getMinutes = require('../src/day-04/getMinutes');
 const parseRecords = require('../src/day-04/parseRecords');
 const guardsSleepingPattern = require('../src/day-04/guardsSleepingPattern');
+const totalSleepForEach = require('../src/day-04/totalSleepForEach');
 
 const STUB_INPUT = [
 	"[1518-11-01 00:00] Guard #10 begins shift",
@@ -264,7 +265,9 @@ describe('Day 04 Part 1', () => {
 			assert.deepEqual(sortByTotalSleep(value), expect);
 
 			function sortByTotalSleep(totals) {
-				return totals;
+				return totals.sort((a, b) => {
+					return b.total - a.total;
+				});
 			}
 		}); 
 	});
