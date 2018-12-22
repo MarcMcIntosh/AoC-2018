@@ -263,12 +263,6 @@ describe('Day 04 Part 1', () => {
 			const expect = [ { id: 1, total: 5 }, { id: 2, total: 2 } ];
 
 			assert.deepEqual(sortByTotalSleep(value), expect);
-
-			function sortByTotalSleep(totals) {
-				return totals.sort((a, b) => {
-					return b.total - a.total;
-				});
-			}
 		}); 
 	});
 
