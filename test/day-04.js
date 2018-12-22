@@ -57,6 +57,8 @@ const getMinutes = require('../src/day-04/getMinutes');
 const parseRecords = require('../src/day-04/parseRecords');
 const guardsSleepingPattern = require('../src/day-04/guardsSleepingPattern');
 const totalSleepForEach = require('../src/day-04/totalSleepForEach');
+const sortByTotalSleep = require('../src/day-04/sortByTotalSleep');
+
 
 const STUB_INPUT = [
 	"[1518-11-01 00:00] Guard #10 begins shift",
@@ -266,34 +268,4 @@ describe('Day 04 Part 1', () => {
 		}); 
 	});
 
-	/* describe('Which Guard slept the most', () => {
-
-		const value = STUB_INPUT;
-		const expect = 10;
-
-		assert.equal(guardThatSleptTheMost(value), expect);
-
-		function sumSleepForEach(hashMap) {
-			return Object.keys(hashMap).map(id => totalSleepForEach(hashMap, id));
-		}
-		function totalSleepForEach(hashMap, id) {
-			const guardsShift = Object.values(hashMap[id]);
-			const total = guardsShift.reduce((a, b) => a + b, 0);
-			return { id, total };
-		}
-
-		function guardThatSleptTheMost(records) {
-			const arrayOfShifts = parseRecords(records);
-			const hashMapOfGuardsSleep = guardsSleepingPattern(arrayOfShifts);
-			const totalForEach = sumSleepForEach(hashMapOfGuardsSleep);
-			console.log(totalForEach);
-			const sleptTheMost = totalForEach.reduce((a, b) => {
-				if (!a) { return b; }
-				if(a.total < b.total) { return b; }
-				return a;
-			});
-
-			return sleptTheMost[0];
-		}
-	}); */
 });
