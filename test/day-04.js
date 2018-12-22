@@ -58,7 +58,7 @@ const parseRecords = require('../src/day-04/parseRecords');
 const guardsSleepingPattern = require('../src/day-04/guardsSleepingPattern');
 const totalSleepForEach = require('../src/day-04/totalSleepForEach');
 const sortByTotalSleep = require('../src/day-04/sortByTotalSleep');
-
+const getMostSleptMinute = require('../src/day-04/mostSleptMinute');
 
 const STUB_INPUT = [
 	"[1518-11-01 00:00] Guard #10 begins shift",
@@ -258,9 +258,9 @@ describe('Day 04 Part 1', () => {
 		});
 	});
 
-	describe('Sort the total amount slept array so the guard with the most sleep is at [0]', () => {
+	describe('Get the id of the guard that slept the most', () => {
 
-		it('Should return [ { id: 1, total: 5 }, { id: 2, total: 2 }], when given an unsorted array of [ { id: 2, total: 2 }, { id: 1, total: 5 }]', () => {
+		it('Should return [{ id: 1, total: 5 }, { id: 2, total: 2 }] when given an unsorted array of [ { id: 2, total: 2 }, { id: 1, total: 5 }]', () => {
 			const value = [ { id: 2, total: 2 }, { id: 1, total: 5 } ];
 			const expect = [ { id: 1, total: 5 }, { id: 2, total: 2 } ];
 
@@ -268,4 +268,67 @@ describe('Day 04 Part 1', () => {
 		}); 
 	});
 
+	describe('get most slpet minute for hash Map', () => {
+
+		const stubHashMap = {
+			1: {
+				1: 1,
+				2: 1,
+				3: 2,
+				4: 1,
+			},
+			2: {
+				1: 1,
+				2: 2,
+				3: 1,
+				4: 1,
+			}
+		};
+
+		it("When given id: 1, and the hashMap: " + JSON.stringify(stubHashMap) + " it should return 3.", () => {
+			const value = 1;
+			const expect = 3;
+
+			assert.equal(getMostSleptMinute(stubHashMap, value), expect)
+		});
+
+		it("When given id 2, and the hashMap: " + JSON.stringify(stubHashMap) + " return 2", () => {
+
+			const value = 2;
+			const expect = 2;
+
+			assert.equal(getMostSleptMinute(stubHashMap, value), expect);
+		});
+
+	});
+/*
+	describe('From the example input. Times the id of the guard who slept the most by the minute they slept the most', () => {
+
+		const value = STUB_INPUT;
+		const expect = 240;
+
+		it(`WHEN given ${STUB_INPUT} return ${expect}`, () => {
+			assert.equal(guardByMinute(value), expect)
+		});
+
+		function answer(records) {
+			const sortedRecords = sortByTime(records);
+			const parsedRecords = parseRecords(sortedRecords);
+
+			const sleepingPatternHashMap = guardsSleepingPatern(parsedRecords);
+			
+			const unsortedTotals = totalSleepForEach(sleepingPatternHashMap);
+			const sortedTotals = sortByTotalSleep(unsortedTotals);
+
+			const guard = sortedTotals[0];
+
+			const { id } = guard;
+
+			const minute = 
+
+			
+		}
+
+	});
+*/
 });
