@@ -301,7 +301,7 @@ describe('Day 04 Part 1', () => {
 		});
 
 	});
-/*
+
 	describe('From the example input. Times the id of the guard who slept the most by the minute they slept the most', () => {
 
 		const value = STUB_INPUT;
@@ -311,11 +311,11 @@ describe('Day 04 Part 1', () => {
 			assert.equal(guardByMinute(value), expect)
 		});
 
-		function answer(records) {
+		function guardByMinute(records) {
 			const sortedRecords = sortByTime(records);
 			const parsedRecords = parseRecords(sortedRecords);
 
-			const sleepingPatternHashMap = guardsSleepingPatern(parsedRecords);
+			const sleepingPatternHashMap = guardsSleepingPattern(parsedRecords);
 			
 			const unsortedTotals = totalSleepForEach(sleepingPatternHashMap);
 			const sortedTotals = sortByTotalSleep(unsortedTotals);
@@ -324,11 +324,13 @@ describe('Day 04 Part 1', () => {
 
 			const { id } = guard;
 
-			const minute = 
+			const minute = getMostSleptMinute(sleepingPatternHashMap, id);
+
+			return id * minute;
 
 			
 		}
 
 	});
-*/
+
 });
