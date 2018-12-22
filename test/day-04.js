@@ -253,15 +253,20 @@ describe('Day 04 Part 1', () => {
 			assert.deepEqual(totalSleepForEach(value), expect);
 
 		});
+	});
 
-		function totalSleepForEach(hashMap) {
-			return Object.keys(hashMap).map((id) => {
-				const minutes = Object.values(hashMap[id]);
-				const total = minutes.reduce((a, b) => a + b, 0);
-				return { id, total };
-			});
-		}
+	describe('Sort the total amount slept array so the guard with the most sleep is at [0]', () => {
 
+		it('Should return [ { id: 1, total: 5 }, { id: 2, total: 2 }], when given an unsorted array of [ { id: 2, total: 2 }, { id: 1, total: 5 }]', () => {
+			const value = [ { id: 2, total: 2 }, { id: 1, total: 5 } ];
+			const expect = [ { id: 1, total: 5 }, { id: 2, total: 2 } ];
+
+			assert.deepEqual(sortByTotalSleep(value), expect);
+
+			function sortByTotalSleep(totals) {
+				return totals;
+			}
+		}); 
 	});
 
 	/* describe('Which Guard slept the most', () => {
