@@ -59,6 +59,7 @@ const guardsSleepingPattern = require('../src/day-04/guardsSleepingPattern');
 const totalSleepForEach = require('../src/day-04/totalSleepForEach');
 const sortByTotalSleep = require('../src/day-04/sortByTotalSleep');
 const getMostSleptMinute = require('../src/day-04/mostSleptMinute');
+const part1 = require('../src/day-04/part-1');
 
 const STUB_INPUT = [
 	"[1518-11-01 00:00] Guard #10 begins shift",
@@ -162,6 +163,7 @@ describe('Day 04 Part 1', () => {
 
  
 			it('Should return an array of records in which the guard started sleeping at', () => {
+				
 				
 				const expect = [
                                          "[1518-11-01 00:05] falls asleep",
@@ -304,32 +306,12 @@ describe('Day 04 Part 1', () => {
 
 	describe('From the example input. Times the id of the guard who slept the most by the minute they slept the most', () => {
 
-		const value = STUB_INPUT;
 		const expect = 240;
-
+		const value = STUB_INPUT;
 		it(`WHEN given ${STUB_INPUT} return ${expect}`, () => {
-			assert.equal(guardByMinute(value), expect)
+			assert.equal(part1(value), expect)
 		});
 
-		function guardByMinute(records) {
-			const sortedRecords = sortByTime(records);
-			const parsedRecords = parseRecords(sortedRecords);
-
-			const sleepingPatternHashMap = guardsSleepingPattern(parsedRecords);
-			
-			const unsortedTotals = totalSleepForEach(sleepingPatternHashMap);
-			const sortedTotals = sortByTotalSleep(unsortedTotals);
-
-			const guard = sortedTotals[0];
-
-			const { id } = guard;
-
-			const minute = getMostSleptMinute(sleepingPatternHashMap, id);
-
-			return id * minute;
-
-			
-		}
 
 	});
 
