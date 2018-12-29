@@ -270,7 +270,7 @@ describe('Day 04 Part 1', () => {
 		}); 
 	});
 
-	describe('get most slpet minute for hash Map', () => {
+	describe('get most slept minute for hash Map', () => {
 
 		const stubHashMap = {
 			1: {
@@ -312,6 +312,35 @@ describe('Day 04 Part 1', () => {
 			assert.equal(part1(value), expect)
 		});
 
+
+	});
+
+});
+
+
+const description = `
+Day 4
+--- Part Two ---
+Strategy 2: Of all guards, which guard is most frequently asleep on the same minute?
+
+In the example above, Guard #99 spent minute 45 asleep more than any other guard or minute - three times in total. (In all other cases, any guard spent any minute asleep at most twice.)
+
+What is the ID of the guard you chose multiplied by the minute you chose? (In the above example, the answer would be 99 * 45 = 4455.)
+`
+
+describe(description, () => {
+
+	describe('Which guard is most frequently asleep on the same minute', () => {
+
+		const stubInput1 = {
+			1: { 1: 1, 2: 1, 3: 3, 4: 1 },  
+                        2: { 1: 1, 2: 2, 3: 1, 4: 1 },
+                };
+		
+		it('When given the input: ' + JSON.stringify(stubInput1, undefined, '\t') + '\n\t it should return 1', () => {
+		const value = 1;
+			assert.equal(guardMostAsleepByMinute(stubInput1), value);
+		});
 
 	});
 
