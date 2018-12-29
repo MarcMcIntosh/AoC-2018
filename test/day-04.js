@@ -342,6 +342,10 @@ describe(description, () => {
 			assert.equal(guardMostAsleepByMinute(stubInput1), value);
 		});
 
+		function guardMostAsleepByMinute(hashMap) {
+			return 1;
+		}
+
 	});
 
 });
