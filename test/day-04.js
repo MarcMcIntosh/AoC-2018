@@ -63,6 +63,7 @@ const part1 = require('../src/day-04/part-1');
 const funpipe = require('../src/funpipe');
 const highestValueKey = require('../src/day-04/highestValueKey');
 const guardMostAsleepByMinute = require('../src/day-04/guardMostAsleepByMinute');
+const part2 = require('../src/day-04/part-2');
 
 const STUB_INPUT = [
 	"[1518-11-01 00:00] Guard #10 begins shift",
@@ -365,6 +366,13 @@ describe(description, () => {
 			assert.equal(highestValueKey(value), expect);
 		});
 
+	});
+
+	describe('Part two solution', () => {
+		it('When given the example input it should return 4455', () => {
+		
+			assert.equal(part2(STUB_INPUT), 4455);
+		});
 	});
 
 });
