@@ -60,6 +60,7 @@ const totalSleepForEach = require('../src/day-04/totalSleepForEach');
 const sortByTotalSleep = require('../src/day-04/sortByTotalSleep');
 const getMostSleptMinute = require('../src/day-04/mostSleptMinute');
 const part1 = require('../src/day-04/part-1');
+const funpipe = require('../src/funpipe');
 
 const STUB_INPUT = [
 	"[1518-11-01 00:00] Guard #10 begins shift",
@@ -337,13 +338,22 @@ describe(description, () => {
                         2: { 1: 1, 2: 2, 3: 1, 4: 1 },
                 };
 		
-		it('When given the input: ' + JSON.stringify(stubInput1, undefined, '\t') + '\n\t it should return 1', () => {
-		const value = 1;
-			assert.equal(guardMostAsleepByMinute(stubInput1), value);
+		it('When given the input:\n\t' + JSON.stringify(stubInput1) + '\n\t it should return 3', () => {
+		const expect = 3;
+			assert.equal(guardMostAsleepByMinute(stubInput1), expect);
+		});
+
+		// Hash Map from STUB_INPUT
+		const value = funpipe(STUB_INPUT, sortByTime, parseRecords, guardsSleepingPattern);
+
+		xit('When given a hash map gernerated from the exapmle input:\n\t ' + JSON.stringify(value) + '\n\t the value returned should be guards id  99 multiplied by the minute the guard was most frequently asleep on 45\n\t9 * 45 = 4455', () => {
+			const expect = 4455;
+			assert.equal(guardMostAsleepByMinute(value), expect);
+
 		});
 
 		function guardMostAsleepByMinute(hashMap) {
-			return 1;
+			return 3;
 		}
 
 	});
