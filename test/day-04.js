@@ -62,6 +62,7 @@ const getMostSleptMinute = require('../src/day-04/mostSleptMinute');
 const part1 = require('../src/day-04/part-1');
 const funpipe = require('../src/funpipe');
 const highestValueKey = require('../src/day-04/highestValueKey');
+const guardMostAsleepByMinute = require('../src/day-04/guardMostAsleepByMinute');
 
 const STUB_INPUT = [
 	"[1518-11-01 00:00] Guard #10 begins shift",
@@ -348,16 +349,12 @@ describe(description, () => {
 		// Hash Map from STUB_INPUT
 		const value = funpipe(STUB_INPUT, sortByTime, parseRecords, guardsSleepingPattern);
 
-		xit('When given a hash map gernerated from the exapmle input:\n\t ' + JSON.stringify(value) + '\n\t the value returned should be guards id  99 multiplied by the minute the guard was most frequently asleep on 45\n\t9 * 45 = 4455', () => {
+		it('When given a hash map gernerated from the exapmle input:\n\t ' + JSON.stringify(value) + '\n\t the value returned should be guards id  99 multiplied by the minute the guard was most frequently asleep on 45\n\t9 * 45 = 4455', () => {
 			const expect = 4455;
 			assert.equal(guardMostAsleepByMinute(value), expect);
 
 		});
-
-		function guardMostAsleepByMinute(hashMap) {
-			return 3;
-		}
-
+	
 	});
 
 	describe('highestValueKey, This function should be given an object of and return the key with the highest value', () => {
@@ -367,16 +364,6 @@ describe(description, () => {
 
 			assert.equal(highestValueKey(value), expect);
 		});
-
-		function highestValueKey(objectOfKeyValuePairs) {
-			const keys = Object.keys(objectOfKeyValuePairs);
-			const sortedKeys = keys.sort((a, b) => {
-				return objectOfKeyValuePairs[b] - objectOfKeyValuePairs[a];
-			});
-
-			return sortedKeys[0];
-		}
-
 
 	});
 
