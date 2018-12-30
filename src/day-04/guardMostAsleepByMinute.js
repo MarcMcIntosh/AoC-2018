@@ -27,7 +27,7 @@ function guardMostAsleepByMinute(hashMap) {
 	// const idOfGuard = highestValueKey(hashMapOfGuardsAndMostSleptMinute);
 	const idOfGuard = guardsSortedByMostSleptMinute[0];
 	const minute = hashMapOfGuardsAndMostSleptMinute[idOfGuard];
-	console.log(hashMapOfGuardsAndMostSleptMinute);
+	
 	return idOfGuard * minute;
 }
 
