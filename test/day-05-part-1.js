@@ -75,8 +75,7 @@ describe(description, () => {
 		function isUpperCase(letter) {
 			if(letter === 'A') { return true; }
 			if(letter === 'B') { return true; }
-			// if(letter === 'b') { return false; }
-			// if(letter === 'c') { return false; }
+			if(letter === 'C') { return true; }
 			return false;
 		}
 	});
