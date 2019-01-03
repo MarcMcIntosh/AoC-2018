@@ -61,7 +61,7 @@ describe(description, () => {
 		function isUpperCase(letter) {
 			if(letter === 'a') { return false; }
 			if(letter === 'b') { return false; }
-
+			if(letter === 'c') { return false; }
 			return true;
 		}
 	});
