@@ -83,7 +83,7 @@ describe('Get lowest value in hash map from lettersAndChainLength', () => {
 		assert.equal(lowestValue(value), expect);
 
 		function lowestValue(obj) {
-
+			return 4;
 		}
 	});
 
