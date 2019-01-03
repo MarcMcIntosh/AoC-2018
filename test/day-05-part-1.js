@@ -40,7 +40,14 @@ describe(description, () => {
 			const value = 'abAB';
 			const expect = 'abAB';
 
-			assert.equal(filterCasePAirs(value), expect);
+			assert.equal(filterCasePairs(value), expect);
+		});
+
+		it('When given aabAAB it should return aabAAB', () => {
+			const value = 'aabAAB';
+			const expect = 'aabAAB';
+
+			assert.equal(filterCasePairs(value), expect);
 		});
 
 		
