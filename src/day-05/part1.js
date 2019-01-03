@@ -1,3 +1,5 @@
+const filterCasePairs = require('./filterCasePairs');
+
 function part1(str) {
 	
 	let curr = str;

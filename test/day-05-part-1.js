@@ -1,6 +1,7 @@
 const assert = require('assert');
 const isUpperCase = require('../src/day-05/isUpperCase');
 const filterCasePairs = require('../src/day-05/filterCasePairs');
+const part1 = require('../src/day-05/part1');
 
 const description = `
 --- Day 5: Alchemical Reduction ---
@@ -107,8 +108,5 @@ describe('Part one solution', () => {
 
 		assert.equal(part1(value), expect);
 
-		function part1(str) {
-			return 'dabCBAcaDA';
-		};
 	});
 });
