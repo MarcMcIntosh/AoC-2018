@@ -1,5 +1,4 @@
 const assert = require('assert');
-
 const description = `
 --- Part Two ---
 Time to improve the polymer.
@@ -56,3 +55,25 @@ describe('Remove all occurance of a case isensitive occurance of a letter from a
 	};
 });
 
+describe('Get all unique case insensitive letters from a string', () => {
+	it('When given dabAcCaCBAcCcaDA is should return [ a b c d ]', () => {
+		const value = 'dabAcCaCBAcCcaDA';
+		const expect = [ 'a', 'b', 'c', 'd' ];
+
+		assert.deepEqual(uniqueLetters(value), expect);
+	});
+
+	function uniqueLetters(str) {
+		const uniq = [];
+		for(let i = 0; i < str.length; i++) {
+			const letter = str[i];
+			const regexp = new RegExp(letter, 'i');
+
+			if(str.search(regexp) === i) {
+				uniq.push(letter.toLowerCase());
+			}
+		}
+
+		return uniq.sort();
+	}
+});
