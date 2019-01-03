@@ -26,7 +26,17 @@ How many units remain after fully reacting the polymer you scanned? (Note: in th
 `;
 
 describe(description, () => {
-	
+
+	describe('Check if a letter is uppercase or lowercase', () => {
+
+		it('should return true from A', () => {
+			const value = 'A';
+			const epxect = true;
+
+			assert.equal(isUpperCase(value), expect);
+
+		});
+	});
 	describe('Filter lower and upper case pairs from string', () => {
 		
 		it('should return and empty string from aA', () => {
@@ -50,8 +60,15 @@ describe(description, () => {
 			assert.equal(filterCasePairs(value), expect);
 		});
 
-		
 		function filterCasePairs(str) {
+			str.split('').filter((letter, index, array) => {
+				if (index === array.length) {
+					return true;
+				}
+
+				// const next = array[index + 1];
+
+			});
 			if(str === 'abAB') { return str; }
 			if(str === 'aabAAB') { return str; }
 			return '';
