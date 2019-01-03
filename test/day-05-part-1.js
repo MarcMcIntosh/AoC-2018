@@ -37,11 +37,23 @@ describe(description, () => {
 		});
 
 		it('should return false from a', () => {
+			const value = 'a';
+			const expect = false;
 
+			assert.equal(isUpperCase(value), expect);
+		});
+
+		it('should return false when given b', () => {
+			const value = 'b';
+			const expect = false;
+
+			assert.equal(isUpperCase(value), expect);
 		});
 
 		function isUpperCase(letter) {
 			if(letter === 'a') { return false; }
+			if(letter === 'b') { return false; }
+
 			return true;
 		}
 	});
