@@ -65,6 +65,13 @@ describe(description, () => {
 			assert.equal(isUpperCase(value), expect);
 		});
 
+		it('should return true when given C', () => {
+			const value = 'C';
+			const expect = true;
+
+			assert.equal(isUpperCase(value), expect);
+		});
+
 		function isUpperCase(letter) {
 			if(letter === 'A') { return true; }
 			if(letter === 'B') { return true; }
