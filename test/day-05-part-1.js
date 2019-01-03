@@ -1,5 +1,6 @@
 const assert = require('assert');
 const isUpperCase = require('../src/day-05/isUpperCase');
+const filterCasePairs = require('../src/day-05/filterCasePairs');
 
 const description = `
 --- Day 5: Alchemical Reduction ---
@@ -97,24 +98,4 @@ describe('Filter lower and upper case pairs from string', () => {
 		assert.equal(filterCasePairs(value), expect);
 	});
 
-	function filterCasePairs(str) {
-
-		let letters = '';
-
-		for(let i = 0; i < str.length; i++) {
-			const curr = str[i];
-			const next = (i === str.length) ? curr : str[i + 1];
-
-			const currCharCode = str.charCodeAt(i);
-			const nextCharCode = str.charCodeAt(i + 1);
-
-			if (!isNaN(nextCharCode) && (Math.abs(currCharCode - nextCharCode) === 32)) {
-				i++;
-			} else {
-				letters += str[i];
-			}
-		}
-
-		return letters;
-	};
 });	
