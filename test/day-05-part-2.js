@@ -62,3 +62,16 @@ describe('Get all unique case insensitive letters from a string', () => {
 		assert.deepEqual(uniqueLetters(value), expect);
 	});
 });
+
+describe('Create Hash Map of letters and length of the polymer chain from part-1 solution', () => {
+	
+	it('when given dabAcCaCBAcCcaDA it should return { a: 6, b: 8: c: 4, d: 6 }', () => {
+		const expect = { a: 6, b: 8, c: 4, d: 6 };
+		const value = 'dabAcCaCBAcCcaDA';
+
+		assert.deepEqual(lettersAndChainLength(value), expect);
+	});
+
+	function lettersAndChainLength(letterArray) {
+	};
+});
