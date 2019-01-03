@@ -1,4 +1,5 @@
 const assert = require('assert');
+const isUpperCase = require('../src/day-05/isUpperCase');
 
 const description = `
 --- Day 5: Alchemical Reduction ---
@@ -71,9 +72,6 @@ describe('Check if a letter is uppercase or lowercase', () => {
 		assert.equal(isUpperCase(value), expect);
 	});
 
-	function isUpperCase(letter) {
-		return /[A-Z]/.test(letter);
-	}
 });
 
 describe('Filter lower and upper case pairs from string', () => {
