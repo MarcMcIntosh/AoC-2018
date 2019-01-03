@@ -35,6 +35,14 @@ describe(description, () => {
 			
 			assert.equal(filterCasePairs(value), expect);
 		});
+
+		it('When given abAB it should return abAB', () => {
+			const value = 'abAB';
+			const expect = 'abAB';
+
+			assert.equal(filterCasePAirs(value), expect);
+		});
+
 		
 		function filterCasePairs(str) {
 			return '';
