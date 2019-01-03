@@ -59,10 +59,11 @@ describe(description, () => {
 		});
 
 		function isUpperCase(letter) {
-			if(letter === 'a') { return false; }
-			if(letter === 'b') { return false; }
-			if(letter === 'c') { return false; }
-			return true;
+			if(letter === 'A') { return true; }
+			// if(letter === 'a') { return false; }
+			// if(letter === 'b') { return false; }
+			// if(letter === 'c') { return false; }
+			return false;
 		}
 	});
 	describe('Filter lower and upper case pairs from string', () => {
