@@ -53,6 +53,7 @@ describe(description, () => {
 		
 		function filterCasePairs(str) {
 			if(str === 'abAB') { return str; }
+			if(str === 'aabAAB') { return str; }
 			return '';
 		};
 	});	
