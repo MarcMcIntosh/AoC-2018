@@ -98,4 +98,15 @@ describe('Filter lower and upper case pairs from string', () => {
 		assert.equal(filterCasePairs(value), expect);
 	});
 
-});	
+});
+
+describe('Part one solution', () => {
+	it('When given dabAcCaCBAcCcaDA it should return dabCBAcaDA', () => {
+		const value = 'dabAcCaCBAcCcaDA';
+		const expect = 'dabCBAcaDA';
+
+		assert.equal(part1(value), expect);
+
+		function part1(str) {};
+	});
+});
