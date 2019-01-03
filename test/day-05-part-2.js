@@ -2,6 +2,7 @@ const assert = require('assert');
 const removeAll = require('../src/day-05/removeAll');
 const uniqueLetters = require('../src/day-05/uniqueLetters');
 const part1 = require('../src/day-05/part1');
+const lettersAndChainLength = require('../src/day-05/lettersAndChainLength');
 
 const description = `
 --- Part Two ---
@@ -73,13 +74,5 @@ describe('Create Hash Map of letters and length of the polymer chain from part-1
 		assert.deepEqual(lettersAndChainLength(value), expect);
 	});
 
-	function lettersAndChainLength(str) {
-		const uniq = uniqueLetters(str);
-		return uniq.reduce((acc, letter) => {
-			const polymer = removeAll(letter, str);
-			acc[letter] = part1(polymer);
-			return acc 
-		}, {});
-	};
 });
 
