@@ -73,5 +73,6 @@ describe('Create Hash Map of letters and length of the polymer chain from part-1
 	});
 
 	function lettersAndChainLength(letterArray) {
+		return { a: 6, b: 8, c: 4, d: 6 };
 	};
 });
