@@ -1,7 +1,6 @@
 const assert = require('assert');
 const removeAll = require('../src/day-05/removeAll');
 const uniqueLetters = require('../src/day-05/uniqueLetters');
-const part1 = require('../src/day-05/part1');
 const lettersAndChainLength = require('../src/day-05/lettersAndChainLength');
 
 const description = `
@@ -72,6 +71,20 @@ describe('Create Hash Map of letters and length of the polymer chain from part-1
 		const value = 'dabAcCaCBAcCcaDA';
 
 		assert.deepEqual(lettersAndChainLength(value), expect);
+	});
+
+});
+
+describe('Get lowest value in hash map from lettersAndChainLength', () => {
+	it('Should return 4 from { a: 6, b: 8, c: 4, d: 6 }', () => {
+		const value = { a: 6, b: 8, c: 4, d: 6 };
+		const expect = 4;
+
+		assert.equal(lowestValue(value), expect);
+
+		function lowestValue(obj) {
+
+		}
 	});
 
 });
