@@ -33,10 +33,12 @@ describe(description, () => {
 			const value = 'aA';
 			const expect = '';
 			
-			assert.equal(filterCasePairs(value), value);
+			assert.equal(filterCasePairs(value), expect);
 		});
 		
-		function filterCasePairs(str) {};
+		function filterCasePairs(str) {
+			return '';
+		};
 	});	
 
 });
