@@ -28,6 +28,42 @@ After all possible reactions, the resulting polymer contains 10 units.
 How many units remain after fully reacting the polymer you scanned? (Note: in this puzzle and others, the input is large; if you copy/paste your input, make sure you get the whole thing.)
 `;
 
+describe('check strings are the same', () => {
+	
+	it('Diffren length: should return false for aaaaa, aaaa', () => {
+		const value = stringCompare('aaaaa', 'aaaa');
+		const expect = false;
+
+		assert.equal(expect, value);
+	});
+
+	it('should return false for aa, ab', () => {
+		const value = stringCompare('aa', 'ab');
+		const expect = false;
+
+		assert.equal(expect, value);
+	});
+
+	it('should return true for aa aa', () => {
+		const value = stringCompare('aa', 'aa');
+		const expect = true;
+	});
+
+	function stringCompare(str1, str2) {
+		if (str1.length !== str2.length) { return false }
+		
+		let diff = true;
+		
+		for(let i = 0; i < str1.length && diff; i++) {
+			if (str1[i] !== str2[2]) {
+				diff = false;
+			}
+		}
+
+		return diff;
+	}
+
+});
 describe('Check if a letter is uppercase or lowercase', () => {
 	
 	it('should return true from A', () => {
@@ -102,9 +138,9 @@ describe('Filter lower and upper case pairs from string', () => {
 });
 
 describe('Part one solution', () => {
-	it('When given dabAcCaCBAcCcaDA it should return dabCBAcaDA', () => {
+	it('When given dabAcCaCBAcCcaDA it should return the length of "dabCBAcaDA" 10', () => {
 		const value = 'dabAcCaCBAcCcaDA';
-		const expect = 'dabCBAcaDA';
+		const expect = 10;
 
 		assert.equal(part1(value), expect);
 
