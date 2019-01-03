@@ -81,11 +81,18 @@ describe('Get lowest value in hash map from lettersAndChainLength', () => {
 		const expect = 4;
 
 		assert.equal(lowestValue(value), expect);
-
-		function lowestValue(obj) {
-			return 4;
-		}
+		
 	});
 
+	it('shold return 1 from { a: 1, b: 2 }', () => {
+		const value = { a: 1, b: 2 };
+		const expect = 1;
+
+		assert.equal(lowestValue(value), expect);
+	});
+	
+	function lowestValue(obj) {
+		return 4;
+	}
 });
 
