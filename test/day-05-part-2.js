@@ -2,6 +2,7 @@ const assert = require('assert');
 const removeAll = require('../src/day-05/removeAll');
 const uniqueLetters = require('../src/day-05/uniqueLetters');
 const lettersAndChainLength = require('../src/day-05/lettersAndChainLength');
+const lowestValue = require('../src/day-05/lowestValue');
 
 const description = `
 --- Part Two ---
@@ -91,9 +92,5 @@ describe('Get lowest value in hash map from lettersAndChainLength', () => {
 		assert.equal(lowestValue(value), expect);
 	});
 	
-	function lowestValue(obj) {
-		const values = Object.values(obj);
-		return Math.min.apply(null, values);
-	}
 });
 
