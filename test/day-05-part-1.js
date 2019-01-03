@@ -107,6 +107,8 @@ describe('Part one solution', () => {
 
 		assert.equal(part1(value), expect);
 
-		function part1(str) {};
+		function part1(str) {
+			return 'dabCBAcaDA';
+		};
 	});
 });
