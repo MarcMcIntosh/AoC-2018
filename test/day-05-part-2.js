@@ -92,7 +92,8 @@ describe('Get lowest value in hash map from lettersAndChainLength', () => {
 	});
 	
 	function lowestValue(obj) {
-		return 4;
+		const values = Object.values(obj);
+		return Math.min.apply(null, values);
 	}
 });
 
