@@ -31,11 +31,14 @@ describe(description, () => {
 
 		it('should return true from A', () => {
 			const value = 'A';
-			const epxect = true;
+			const expect = true;
 
 			assert.equal(isUpperCase(value), expect);
-
 		});
+
+		function isUpperCase(letter) {
+			return true;
+		}
 	});
 	describe('Filter lower and upper case pairs from string', () => {
 		
@@ -66,7 +69,7 @@ describe(description, () => {
 					return true;
 				}
 
-				// const next = array[index + 1];
+				const next = array[index + 1];
 
 			});
 			if(str === 'abAB') { return str; }
