@@ -3,6 +3,7 @@ const removeAll = require('../src/day-05/removeAll');
 const uniqueLetters = require('../src/day-05/uniqueLetters');
 const lettersAndChainLength = require('../src/day-05/lettersAndChainLength');
 const lowestValue = require('../src/day-05/lowestValue');
+const part2 = require('../src/day-05/part2');
 
 const description = `
 --- Part Two ---
@@ -102,8 +103,5 @@ describe('Day 05 part 2 stub solution', () => {
 		assert.equal(part2(value), expect);
 	});
 
-	function part2(str) {
-		const hashMap = lettersAndChainLength(str);
-		return lowestValue(hashMap);
-	}
+	
 });
