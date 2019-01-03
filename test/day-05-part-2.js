@@ -102,6 +102,5 @@ describe('Day 05 part 2 stub solution', () => {
 
 		assert.equal(part2(value), expect);
 	});
-
-	
 });
+
