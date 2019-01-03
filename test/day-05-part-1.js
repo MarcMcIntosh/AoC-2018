@@ -98,15 +98,23 @@ describe('Filter lower and upper case pairs from string', () => {
 	});
 
 	function filterCasePairs(str) {
-		str.split('').filter((letter, index, array) => {
-			if (index === array.length) {
-				return true;
-			}
-			const next = array[index + 1];
 
-		});
-		if(str === 'abAB') { return str; }
-		if(str === 'aabAAB') { return str; }
-		return '';
+		let letters = '';
+
+		for(let i = 0; i < str.length; i++) {
+			const curr = str[i];
+			const next = (i === str.length) ? curr : str[i + 1];
+
+			const currCharCode = str.charCodeAt(i);
+			const nextCharCode = str.charCodeAt(i + 1);
+
+			if (!isNaN(nextCharCode) && (Math.abs(currCharCode - nextCharCode) === 32)) {
+				i++;
+			} else {
+				letters += str[i];
+			}
+		}
+
+		return letters;
 	};
 });	
