@@ -94,3 +94,16 @@ describe('Get lowest value in hash map from lettersAndChainLength', () => {
 	
 });
 
+describe('Day 05 part 2 stub solution', () => {
+	it('When given dabAcCaCBAcCcaDA it should return 4', () => {
+		const value = 'dabAcCaCBAcCcaDA';
+		const expect = 4;
+
+		assert.equal(part2(value), expect);
+	});
+
+	function part2(str) {
+		const hashMap = lettersAndChainLength(str);
+		return lowestValue(hashMap);
+	}
+});
