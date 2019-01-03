@@ -25,96 +25,90 @@ After all possible reactions, the resulting polymer contains 10 units.
 How many units remain after fully reacting the polymer you scanned? (Note: in this puzzle and others, the input is large; if you copy/paste your input, make sure you get the whole thing.)
 `;
 
-describe(description, () => {
+describe('Check if a letter is uppercase or lowercase', () => {
+	
+	it('should return true from A', () => {
+	
+		const value = 'A';
+		const expect = true;
 
-	describe('Check if a letter is uppercase or lowercase', () => {
-
-		it('should return true from A', () => {
-			const value = 'A';
-			const expect = true;
-
-			assert.equal(isUpperCase(value), expect);
-		});
-
-		it('should return false from a', () => {
-			const value = 'a';
-			const expect = false;
-
-			assert.equal(isUpperCase(value), expect);
-		});
-
-		it('should return false when given b', () => {
-			const value = 'b';
-			const expect = false;
-
-			assert.equal(isUpperCase(value), expect);
-		});
-
-		it('should return false when given c', () => {
-
-			const value = 'c';
-			const expect = false;
-
-			assert.equal(isUpperCase(value), expect);
-		});
-
-		it('should return true when given B', () => {
-			const value = 'B';
-			const expect = true;
-
-			assert.equal(isUpperCase(value), expect);
-		});
-
-		it('should return true when given C', () => {
-			const value = 'C';
-			const expect = true;
-
-			assert.equal(isUpperCase(value), expect);
-		});
-
-		function isUpperCase(letter) {
-			if(letter === 'A') { return true; }
-			if(letter === 'B') { return true; }
-			if(letter === 'C') { return true; }
-			return false;
-		}
+		assert.equal(isUpperCase(value), expect);
 	});
-	describe('Filter lower and upper case pairs from string', () => {
-		
-		it('should return and empty string from aA', () => {
-			const value = 'aA';
-			const expect = '';
-			
-			assert.equal(filterCasePairs(value), expect);
-		});
 
-		it('When given abAB it should return abAB', () => {
-			const value = 'abAB';
-			const expect = 'abAB';
+	it('should return false from a', () => {
+		const value = 'a';
+		const expect = false;
 
-			assert.equal(filterCasePairs(value), expect);
-		});
+		assert.equal(isUpperCase(value), expect);
+	});
 
-		it('When given aabAAB it should return aabAAB', () => {
-			const value = 'aabAAB';
-			const expect = 'aabAAB';
+	it('should return false when given b', () => {
+		const value = 'b';
+		const expect = false;
 
-			assert.equal(filterCasePairs(value), expect);
-		});
+		assert.equal(isUpperCase(value), expect);
+	});
 
-		function filterCasePairs(str) {
-			str.split('').filter((letter, index, array) => {
-				if (index === array.length) {
-					return true;
-				}
+	it('should return false when given c', () => {
 
-				const next = array[index + 1];
+		const value = 'c';
+		const expect = false;
 
-			});
-			if(str === 'abAB') { return str; }
-			if(str === 'aabAAB') { return str; }
-			return '';
-		};
-	});	
+		assert.equal(isUpperCase(value), expect);
+	});
 
+	it('should return true when given B', () => {
+		const value = 'B';
+		const expect = true;
+
+		assert.equal(isUpperCase(value), expect);
+	});
+
+	it('should return true when given C', () => {
+		const value = 'C';
+		const expect = true;
+
+		assert.equal(isUpperCase(value), expect);
+	});
+
+	function isUpperCase(letter) {
+		return /[A-Z]/.test(letter);
+	}
 });
+
+describe('Filter lower and upper case pairs from string', () => {
+		
+	it('should return and empty string from aA', () => {
+		const value = 'aA';
+		const expect = '';
+		
+		assert.equal(filterCasePairs(value), expect);
+	});
+
+	it('When given abAB it should return abAB', () => {
+		const value = 'abAB';
+		const expect = 'abAB';
+
+		assert.equal(filterCasePairs(value), expect);
+	});
+
+	it('When given aabAAB it should return aabAAB', () => {
+		const value = 'aabAAB';
+		const expect = 'aabAAB';
+
+		assert.equal(filterCasePairs(value), expect);
+	});
+
+	function filterCasePairs(str) {
+		str.split('').filter((letter, index, array) => {
+			if (index === array.length) {
+				return true;
+			}
+			const next = array[index + 1];
+
+		});
+		if(str === 'abAB') { return str; }
+		if(str === 'aabAAB') { return str; }
+		return '';
+	};
+});	
