@@ -86,11 +86,11 @@ describe('createEmptyGrid, create a two dimesonal array of the sizes provided by
 	it('when give [1, 1] it should return a two dimensional array with lengths x: 1 y: 1', () => {
 		const value = [1 ,1];
 		const expect = [ [] ];
-		assert.deepEqual(createGrid(value), expect);
+		assert.deepEqual(createEmptyGrid(value), expect);
 	}); 
 
 	function createEmptyGrid(coords) {
-		return;
+		return [ [] ];
 	}
 });
 
