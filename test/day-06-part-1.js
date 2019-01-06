@@ -58,8 +58,20 @@ describe('maxAxis, Get Max axis from coordinates', () => {
 		assert.deepEqual(maxAxis(value), expect);
 	});
 
+	it('should return [2, 1] from [ [ 0, 0 ], [ 2, 0 ], [ 1, 1 ]', () => {
+		const value = [ [ 0, 0 ], [ 2, 0 ], [ 1, 1 ] ];
+		const expect = [ 2, 1 ];
+
+		assert.deepEqual(maxAxis(value), expect);
+	});
+
 	function maxAxis(coords) {
-		return [1, 1];
+		const xAxis = coords.map(([x, y]) => x);
+		const yAxis = coords.map(([x, y]) => y);
+		return [
+			Math.max.apply(null, xAxis),
+			Math.max.apply(null, yAxis),
+		];
 	};
 });
 describe('Fill in a grid with the coorinates [[1, 1], [1, 6], [8, 3], [3, 4], [5, 5], [8, 9] ]', () => {
