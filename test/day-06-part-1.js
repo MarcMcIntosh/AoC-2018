@@ -53,6 +53,7 @@ const assert = require('assert');
 const maxCoord = require('../src/day-06/maxCoord');
 const maxAxis = require('../src/day-06/maxAxis');
 const createEmptyGrid = require('../src/day-06/createEmptyGrid');
+const manhattanDistance = require('../src/day-06/manhattanDistance');
 
 describe('maxCoord should return the highest coordinate based on functor', () => {
 
@@ -144,9 +145,6 @@ describe('Manhattan distance', () => {
 		assert.equal(value, expect);
 	});
 
-	function manhattanDistance([x1, y1], [x2, y2]) {
-		return Math.abs((x1 - x2) + (y1 - y2));
-	}
 
 });
 
