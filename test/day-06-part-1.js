@@ -59,7 +59,7 @@ describe('maxAxis, Get Max axis from coordinates', () => {
 	});
 
 	function maxAxis(coords) {
-		
+		return [1, 1];
 	};
 });
 describe('Fill in a grid with the coorinates [[1, 1], [1, 6], [8, 3], [3, 4], [5, 5], [8, 9] ]', () => {
