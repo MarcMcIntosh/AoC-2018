@@ -129,3 +129,21 @@ describe('initalise in a grid with the starting coordinates', () => {
 	}
 });
 
+describe('Manhattan distance', () => {
+	it('When given [0,0] and [1,1] it should return 2', () => {
+		const value = manhattanDistance([0,0], [1,1]);
+		const expect = 2;
+
+		assert.equal(value,expect)
+	});
+
+	function manhattanDistance(point1, point2) {
+		return;
+	}
+
+});
+
+describe('work out the points that are equal distrance from the starting points.', () => {
+
+});
+
