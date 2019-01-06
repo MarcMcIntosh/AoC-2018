@@ -141,11 +141,11 @@ describe('Manhattan distance', () => {
 		const value = manhattanDistance([0,0], [2,2]);
 		const expect = 4;
 
-		assert.euqal(value, expect);
+		assert.equal(value, expect);
 	});
 
-	function manhattanDistance(point1, point2) {
-		return 2;
+	function manhattanDistance([x1, y1], [x2, y2]) {
+		return Math.abs((x1 - x2) + (y1 - y2));
 	}
 
 });
