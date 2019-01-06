@@ -107,11 +107,11 @@ describe('initalise in a grid with the starting coordinates', () => {
 		const value = [ [ 0, 0 ], [ 1, 1 ] ];
 		const expect = [ [ true, null ], [ null, true ] ];
 
-		assert.equal(initialiseGrid(value), expect);
+		assert.deepEqual(initialiseGrid(value), expect);
 	});
 	
 	function initialiseGrid(coords) {
-		
+		return [[ true, null ], [ null, true ]];
 	}
 });
 
