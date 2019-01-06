@@ -55,7 +55,7 @@ describe('getMaxCoord should return the highest coordinate based on functor', ()
 
 	it('When given [[ 0, 1], [2 ,0]] and a functor ([x, y] => x), it should return the highest X coordintate 2.', () => {
 
-		const value = [ [0,1], [2,0];
+		const value = [ [0,1], [2,0] ];
 		const functor = ([x, y]) => x;
 		const expect = 2;
 	});
