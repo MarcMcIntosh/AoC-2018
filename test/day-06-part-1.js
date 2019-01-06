@@ -137,6 +137,13 @@ describe('Manhattan distance', () => {
 		assert.equal(value,expect)
 	});
 
+	it('When given [0,0] and [2,2] is should return 4', () => {
+		const value = manhattanDistance([0,0], [2,2]);
+		const expect = 4;
+
+		assert.euqal(value, expect);
+	});
+
 	function manhattanDistance(point1, point2) {
 		return 2;
 	}
