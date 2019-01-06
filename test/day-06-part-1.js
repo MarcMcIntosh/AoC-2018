@@ -84,26 +84,28 @@ describe('maxAxis, Get Max axis from coordinates', () => {
 });
 
 describe('createEmptyGrid, create a two dimesonal array of the sizes provided by maxAxis', () => {
-	it('when given [1, 1] it should return [ [ null ] ]', () => {
-		const value = [1 ,1];
+	it('when given [0, 0] it should return [ [ null ] ]', () => {
+		const value = [0, 0];
 		const expect = [ [ null ] ];
 		assert.deepEqual(createEmptyGrid(value), expect);
 	}); 
 
-	it('when [ 2, 4 ] it should return 2 rows, each with four null values', () => {
-		const value = [ 2, 4 ];
+	it('when [ 1, 3 ] it should return  rows, each with four null values', () => {
+		const value = [ 1, 3 ];
 		const expect = [
 			[ null, null, null, null ],
 			[ null, null, null, null ],
 		];
 
 		assert.deepEqual(createEmptyGrid(value), expect);
-	});
-
-	
+	});	
 });
 
-describe('Fill in a grid with the coorinates [[1, 1], [1, 6], [8, 3], [3, 4], [5, 5], [8, 9] ]', () => {
+describe('initalise in a grid with the starting coordinates', () => {
 
+	it('when given grid 2 by 2 grid and starting coords [ [0, 0], [1, 1] ], return [ [ true, null ], [ null, true ] ]', () => {
+		const value = [ 2, 2 ];
+		const expect = [ [ true, null ], [ null, true ] ];
+	});
 });
 
