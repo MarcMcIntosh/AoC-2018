@@ -52,6 +52,7 @@ What is the size of the largest area that isn't infinite?
 const assert = require('assert');
 const maxCoord = require('../src/day-06/maxCoord');
 const maxAxis = require('../src/day-06/maxAxis');
+const createEmptyGrid = require('../src/day-06/createEmptyGrid');
 
 describe('maxCoord should return the highest coordinate based on functor', () => {
 
@@ -99,9 +100,7 @@ describe('createEmptyGrid, create a two dimesonal array of the sizes provided by
 		assert.deepEqual(createEmptyGrid(value), expect);
 	});
 
-	function createEmptyGrid([x, y]) {
-		return Array.from({ length: x }, () => Array.from({ length: y }, () => null)); 
-	}
+	
 });
 
 describe('Fill in a grid with the coorinates [[1, 1], [1, 6], [8, 3], [3, 4], [5, 5], [8, 9] ]', () => {
