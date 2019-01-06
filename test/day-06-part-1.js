@@ -81,6 +81,19 @@ describe('maxAxis, Get Max axis from coordinates', () => {
 		assert.deepEqual(maxAxis(value), expect);
 	});
 });
+
+describe('createEmptyGrid, create a two dimesonal array of the sizes provided by maxAxis', () => {
+	it('when give [1, 1] it should return a two dimensional array with lengths x: 1 y: 1', () => {
+		const value = [1 ,1];
+		const expect = [ [] ];
+		assert.deepEqual(createGrid(value), expect);
+	}); 
+
+	function createEmptyGrid(coords) {
+		return;
+	}
+});
+
 describe('Fill in a grid with the coorinates [[1, 1], [1, 6], [8, 3], [3, 4], [5, 5], [8, 9] ]', () => {
 
 });
