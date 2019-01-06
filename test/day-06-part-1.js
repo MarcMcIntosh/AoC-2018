@@ -103,9 +103,15 @@ describe('createEmptyGrid, create a two dimesonal array of the sizes provided by
 
 describe('initalise in a grid with the starting coordinates', () => {
 
-	it('when given grid 2 by 2 grid and starting coords [ [0, 0], [1, 1] ], return [ [ true, null ], [ null, true ] ]', () => {
-		const value = [ 2, 2 ];
+	it('when given starting coords [ [0, 0], [1, 1] ], return [ [ true, null ], [ null, true ] ]', () => {
+		const value = [ [ 0, 0 ], [ 1, 1 ] ];
 		const expect = [ [ true, null ], [ null, true ] ];
+
+		assert.equal(initialiseGrid(value), expect);
 	});
+	
+	function initialiseGrid(coords) {
+		
+	}
 });
 
