@@ -138,7 +138,7 @@ describe('Manhattan distance', () => {
 	});
 
 	function manhattanDistance(point1, point2) {
-		return;
+		return 2;
 	}
 
 });
