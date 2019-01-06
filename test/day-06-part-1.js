@@ -85,12 +85,12 @@ describe('maxAxis, Get Max axis from coordinates', () => {
 describe('createEmptyGrid, create a two dimesonal array of the sizes provided by maxAxis', () => {
 	it('when give [1, 1] it should return a two dimensional array with lengths x: 1 y: 1', () => {
 		const value = [1 ,1];
-		const expect = [ [] ];
+		const expect = [ [ null ] ];
 		assert.deepEqual(createEmptyGrid(value), expect);
 	}); 
-
+ 
 	function createEmptyGrid(coords) {
-		return [ [] ];
+		return [ [ null ] ];
 	}
 });
 
