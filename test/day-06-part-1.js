@@ -83,14 +83,24 @@ describe('maxAxis, Get Max axis from coordinates', () => {
 });
 
 describe('createEmptyGrid, create a two dimesonal array of the sizes provided by maxAxis', () => {
-	it('when give [1, 1] it should return a two dimensional array with lengths x: 1 y: 1', () => {
+	it('when given [1, 1] it should return [ [ null ] ]', () => {
 		const value = [1 ,1];
 		const expect = [ [ null ] ];
 		assert.deepEqual(createEmptyGrid(value), expect);
 	}); 
- 
-	function createEmptyGrid(coords) {
-		return [ [ null ] ];
+
+	it('when [ 2, 4 ] it should return 2 rows, each with four null values', () => {
+		const value = [ 2, 4 ];
+		const expect = [
+			[ null, null, null, null ],
+			[ null, null, null, null ],
+		];
+
+		assert.deepEqual(createEmptyGrid(value), expect);
+	});
+
+	function createEmptyGrid([x, y]) {
+		return Array.from({ length: x }, () => Array.from({ length: y }, () => null)); 
 	}
 });
 
