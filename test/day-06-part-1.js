@@ -50,11 +50,7 @@ What is the size of the largest area that isn't infinite?
 `
 
 const assert = require('assert');
-
-function maxCoord(coords, func) {
-	return Math.max.apply(null, coords.map(func));
-};
-
+const maxCoord = require('../src/day-06/maxCoord');
 
 describe('maxCoord should return the highest coordinate based on functor', () => {
 
