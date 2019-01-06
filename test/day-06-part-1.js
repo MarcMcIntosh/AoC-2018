@@ -58,9 +58,11 @@ describe('getMaxCoord should return the highest coordinate based on functor', ()
 		const value = [ [0,1], [2,0] ];
 		const functor = ([x, y]) => x;
 		const expect = 2;
+
+		assert.equal(maxCoord(value), epxect);
 	});
 
-	function getMaxCoord(coords, func) {
+	function maxCoord(coords, func) {
 		return;
 	};
 
