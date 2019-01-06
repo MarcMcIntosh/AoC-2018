@@ -115,10 +115,17 @@ describe('initalise in a grid with the starting coordinates', () => {
 		const expect = [ [ null, true ], [ true, null ] ];
 
 		assert.deepEqual(initialiseGrid(value), expect);
-	})
+	});
 	
 	function initialiseGrid(coords) {
-		return [[ true, null ], [ null, true ]];
+		const gridSize = maxAxis(coords);
+		const grid = createEmptyGrid(gridSize);
+		
+		coords.forEach(([x, y]) => {
+			grid[x][y] = true;
+		});
+
+		return grid;
 	}
 });
 
