@@ -51,6 +51,11 @@ What is the size of the largest area that isn't infinite?
 
 const assert = require('assert');
 
+function maxCoord(coords, func) {
+	return Math.max.apply(null, coords.map(func));
+};
+
+
 describe('maxCoord should return the highest coordinate based on functor', () => {
 
 	it('When given [[ 0, 1], [2 ,0]] and a functor ([x, y] => x), it should return the highest X coordintate 2.', () => {
@@ -62,10 +67,7 @@ describe('maxCoord should return the highest coordinate based on functor', () =>
 		assert.equal(maxCoord(value, functor), expect);
 	});
 
-	function maxCoord(coords, func) {
-		return Math.max.apply(null, coords.map(func));
-	};
-
+	
 });
 
 describe('maxAxis, Get Max axis from coordinates', () => {
@@ -83,12 +85,9 @@ describe('maxAxis, Get Max axis from coordinates', () => {
 	});
 
 	function maxAxis(coords) {
-		const xAxis = coords.map(([x, y]) => x);
-		const yAxis = coords.map(([x, y]) => y);
-		return [
-			Math.max.apply(null, xAxis),
-			Math.max.apply(null, yAxis),
-		];
+		const maxX = maxCoord(coords, ([x, y]) => x);
+		const maxY = maxCoord(coords, ([x, y]) => y);
+		return [ maxX, maxY ];
 	};
 });
 describe('Fill in a grid with the coorinates [[1, 1], [1, 6], [8, 3], [3, 4], [5, 5], [8, 9] ]', () => {
