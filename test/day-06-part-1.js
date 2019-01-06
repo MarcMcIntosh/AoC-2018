@@ -109,6 +109,13 @@ describe('initalise in a grid with the starting coordinates', () => {
 
 		assert.deepEqual(initialiseGrid(value), expect);
 	});
+
+	it('When given the starting coords [ [0, 1], [ 0, 1] ]. retrun [ [ null, true ], [ true, null ] ]', () => {
+		const value = [ [0,1], [1,0] ];
+		const expect = [ [ null, true ], [ true, null ] ];
+
+		assert.deepEqual(initialiseGrid(value), expect);
+	})
 	
 	function initialiseGrid(coords) {
 		return [[ true, null ], [ null, true ]];
