@@ -54,6 +54,9 @@ const maxCoord = require('../src/day-06/maxCoord');
 const maxAxis = require('../src/day-06/maxAxis');
 const createEmptyGrid = require('../src/day-06/createEmptyGrid');
 const manhattanDistance = require('../src/day-06/manhattanDistance');
+const initialiseGrid = require('../src/day-06/initialiseGrid');
+const coordsToString = require('../src/day-06/coordsToString');
+const invertCoords = require('../src/day-06/invertCoords');
 
 describe('maxCoord should return the highest coordinate based on functor', () => {
 
@@ -102,32 +105,40 @@ describe('createEmptyGrid, create a two dimesonal array of the sizes provided by
 	});	
 });
 
+
+describe('coordsToString', () => {
+	it('should return 0:0 when called as coordsToString(0, 0)', () => { 
+		const value = coordsToString(0, 0);
+		const expect = '0:0';
+
+		assert.equal(value, expect);
+	});
+
+	it('should return 1:1 whan called as coordsToString([1, 1])', () => {
+		const value = coordsToString([1, 1]);
+		const expect = '1:1';
+
+		assert.equal(value, expect);
+	});
+
+});
+
 describe('initalise in a grid with the starting coordinates', () => {
 
 	it('when given starting coords [ [0, 0], [1, 1] ], return [ [ true, null ], [ null, true ] ]', () => {
 		const value = [ [ 0, 0 ], [ 1, 1 ] ];
-		const expect = [ [ true, null ], [ null, true ] ];
+		const expect = [ [ '0:0', null ], [ null, '1:1' ] ];
 
 		assert.deepEqual(initialiseGrid(value), expect);
 	});
 
 	it('When given the starting coords [ [0, 1], [ 0, 1] ]. retrun [ [ null, true ], [ true, null ] ]', () => {
 		const value = [ [0,1], [1,0] ];
-		const expect = [ [ null, true ], [ true, null ] ];
+		const expect = [ [ null, '0:1' ], [ '1:0', null ] ];
 
 		assert.deepEqual(initialiseGrid(value), expect);
 	});
 	
-	function initialiseGrid(coords) {
-		const gridSize = maxAxis(coords);
-		const grid = createEmptyGrid(gridSize);
-		
-		coords.forEach(([x, y]) => {
-			grid[x][y] = true;
-		});
-
-		return grid;
-	}
 });
 
 describe('Manhattan distance', () => {
@@ -145,7 +156,7 @@ describe('Manhattan distance', () => {
 		assert.equal(value, expect);
 	});
 });
-
+/*
 describe('work out the points that are equal distrance from the starting points.', () => {
 	it('When given starting coords [ [0, 0], [2, 2] ] return [ [1, 1] ]', () => {
 		const value = [ [ 0, 0 ], [ 2, 2 ] ];
@@ -163,9 +174,26 @@ describe('work out the points that are equal distrance from the starting points.
 	});
 
 	function equalDistances(arrayOfCoords) {
-		return [ [ 1, 1 ] ];
+		const coords = arrayOfCoords.map(invertCoords);
+		const grid = initialiseGrid(coords);
+		const equalDistance = [];
+		for(let x = 0; x < grid.length; x += 1) {
+			
+			const row = grid[x];
+			
+			for (let y = 0; y < row.length; y += 1) {
+				const duplicatedValues = coords.map(coord => manhattanDistance([x, y], coord))
+					.filter((distance, index, arr) => arr.lastIndexOf(distance) !== index);
+				if (duplicatedValues.length > 1) { 
+					equalDistance.push([x, y]);
+				}
+				
+			}
+		}
+		return equalDistance;
+		// return [ [ 1, 1 ] ];
 	}
 	// loop through all of the points in the grid and compair them too each of the starting points
 	// if two or more are eual it becomes a '.'
 });
-
+*/
