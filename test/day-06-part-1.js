@@ -154,6 +154,14 @@ describe('work out the points that are equal distrance from the starting points.
 		assert.deepEqual(equalDistances(value), expect);
 	});
 
+	it('When given starting coords [ [1, 1], [1, 6], [8, 3], [3, 4], [5, 5], [8, 9] ] it should return [ [0, 5], [1, 5] [4, 0], [4, 1], [5, 2], [6, 3], [6, 8], [6, 9], [7, 3], [8, 3], [9, 3] ]', () => {
+
+		const value = [ [1, 1], [1, 6], [8, 3], [3, 4], [5, 5], [8, 9] ];
+		const expect =  [ [0, 5], [1, 5] [4, 0], [4, 1], [5, 2], [6, 3], [6, 8], [6, 9], [7, 3], [8, 3], [9, 3] ];
+
+		assert.deepEqual(equalDistances(value), expect);
+	});
+
 	function equalDistances(arrayOfCoords) {
 		return [ [ 1, 1 ] ];
 	}
