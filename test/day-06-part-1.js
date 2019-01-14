@@ -155,7 +155,7 @@ describe('work out the points that are equal distrance from the starting points.
 	});
 
 	function equalDistances(arrayOfCoords) {
-		return;
+		return [ [ 1, 1 ] ];
 	}
 	// loop through all of the points in the grid and compair them too each of the starting points
 	// if two or more are eual it becomes a '.'
