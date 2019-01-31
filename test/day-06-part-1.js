@@ -60,6 +60,7 @@ const invertCoords = require('../src/day-06/invertCoords');
 const coordsWithDistance = require('../src/day-06/coordsWithDistance');
 const sortByNearestDistance = require('../src/day-06/sortByNearestDistance');
 const fillGrid = require('../src/day-06/fillGrid');
+const countArea = require('../src/day-06/countArea');
 
 
 describe('maxCoord should return the highest coordinate based on functor', () => {
@@ -279,6 +280,30 @@ describe('fillGrid, create and fill grid from starting coords with each x:y coor
 });
 
 describe('countArea', () => {
+	const STUB = [
+		'aaaaa.cccc',
+		'aAaaa.cccc',
+		'aaaddecccc',
+		'aadddeccCc',
+		'..dDdeeccc',
+		'bb.deEeecc',
+		'bBb.eeee..',
+		'bbb.eeefff',
+		'bbb.eeffff',
+		'bbb.ffffFf'
+        ].map(str => str.split('').map(letter => letter.toLowerCase()))
 
+	const expected = {
+		a: Infinity,
+		b: Infinity,
+		c: Infinity,
+		d: 9,
+		e: 17,
+		f: Infinity,
+	};
+
+	it(`should return ${JSON.stringify(expected)} when given ${JSON.stringify(STUB)}`, () => {
+		assert.deepEqual(countArea(STUB), expected);
+	});	
 });
 
