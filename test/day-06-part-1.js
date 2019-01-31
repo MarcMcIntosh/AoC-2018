@@ -57,6 +57,10 @@ const manhattanDistance = require('../src/day-06/manhattanDistance');
 const initialiseGrid = require('../src/day-06/initialiseGrid');
 const coordsToString = require('../src/day-06/coordsToString');
 const invertCoords = require('../src/day-06/invertCoords');
+const coordsWithDistance = require('../src/day-06/coordsWithDistance');
+const sortByNearestDistance = require('../src/day-06/sortByNearestDistance');
+const fillGrid = require('../src/day-06/fillGrid');
+
 
 describe('maxCoord should return the highest coordinate based on functor', () => {
 
@@ -156,44 +160,66 @@ describe('Manhattan distance', () => {
 		assert.equal(value, expect);
 	});
 });
-/*
-describe('work out the points that are equal distrance from the starting points.', () => {
-	it('When given starting coords [ [0, 0], [2, 2] ] return [ [1, 1] ]', () => {
-		const value = [ [ 0, 0 ], [ 2, 2 ] ];
-		const expect = [ [ 1, 1 ] ];
 
-		assert.deepEqual(equalDistances(value), expect);
+describe('invertCoords, The starting coords seem to be in y , x pairs', () => {
+	it('shoud return [0, 1] from arguments 1, 0', () => {
+		const value = invertCoords(1, 0);
+		const expect = [ 0, 1 ];
+
+		assert.deepEqual(value, expect);
 	});
 
-	it('When given starting coords [ [1, 1], [1, 6], [8, 3], [3, 4], [5, 5], [8, 9] ] it should return [ [0, 5], [1, 5] [4, 0], [4, 1], [5, 2], [6, 3], [6, 8], [6, 9], [7, 3], [8, 3], [9, 3] ]', () => {
+	it('should return [1, 0] from arguments 0, 1', () => {
+		const value = invertCoords(0, 1);
+		const expect = [ 1, 0 ];
 
-		const value = [ [1, 1], [1, 6], [8, 3], [3, 4], [5, 5], [8, 9] ];
-		const expect =  [ [0, 5], [1, 5] [4, 0], [4, 1], [5, 2], [6, 3], [6, 8], [6, 9], [7, 3], [8, 3], [9, 3] ];
-
-		assert.deepEqual(equalDistances(value), expect);
+		assert.deepEqual(value, expect);
 	});
-
-	function equalDistances(arrayOfCoords) {
-		const coords = arrayOfCoords.map(invertCoords);
-		const grid = initialiseGrid(coords);
-		const equalDistance = [];
-		for(let x = 0; x < grid.length; x += 1) {
-			
-			const row = grid[x];
-			
-			for (let y = 0; y < row.length; y += 1) {
-				const duplicatedValues = coords.map(coord => manhattanDistance([x, y], coord))
-					.filter((distance, index, arr) => arr.lastIndexOf(distance) !== index);
-				if (duplicatedValues.length > 1) { 
-					equalDistance.push([x, y]);
-				}
-				
-			}
-		}
-		return equalDistance;
-		// return [ [ 1, 1 ] ];
-	}
-	// loop through all of the points in the grid and compair them too each of the starting points
-	// if two or more are eual it becomes a '.'
 });
-*/
+
+describe('coordsWithDistance', () => {
+	it('when given [0, 0] and [1, 1] it should return { coords: [0, 0], distance: 2 }', () => {
+		const value = coordsWithDistance([0, 0], [1, 1]);
+		const expect = { coords: [0, 0], distance: 2 };
+		assert.deepEqual(value, expect);
+	});
+	
+	it('when given [0, 0] and [2, 2] it should return { coords: [0, 0], distance: 4 }', () => {
+                const value = coordsWithDistance([0, 0], [2, 2]);
+                const expect = { coords: [0, 0], distance: 4 };
+                assert.deepEqual(value, expect);
+        });
+
+});
+
+describe('sortByNearestDistance', () => {
+	it('when given [{ distance: 1 }, { distance: 0}] it should return [ { distance: 0 }, { distance: 1 } ]', () => {
+		const value = [{ distance: 1 }, { distance: 0 }];
+		const expect = [ { distance: 0 }, { distance: 1 }];
+
+		assert.deepEqual(value.sort(sortByNearestDistance), expect);
+	});
+}); 
+
+describe('fillGrid, create and fill grid from starting coords with each x:y coord being either the closest a string "x:y" of the closest starting coord or a "." if two or more are closer', () => {
+
+	it("when given [ [0, 0], [1, 1] ] it should return [ ['0:0', '.' ], [ '.', '1:1' ] ]", () => {
+	
+		const start_with = [ [0,0], [1,1] ];
+		const expect = [
+			[ '0:0', '.' ],
+			[ '.', '1:1' ],
+		];
+
+		assert.deepEqual(fillGrid(start_with), expect);
+	});
+
+	const test2_result = [ [ '1:1', '1:1', '1:1' ], [ '1:1', '1:1', '.' ], [ '1:1', '.', '2:2' ] ];
+
+	it('When given [[1, 1], [2, 2]] it should return ' + JSON.stringify(test2_result), () => {
+		assert.deepEqual(fillGrid([[1, 1], [2, 2]]), test2_result);
+	});
+
+
+});
+
