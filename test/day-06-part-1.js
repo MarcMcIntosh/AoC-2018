@@ -159,6 +159,10 @@ describe('Manhattan distance', () => {
 
 		assert.equal(value, expect);
 	});
+
+	it('When given [1, 6] and [3, 4] is should return 4', () => {
+		assert.equal(manhattanDistance([1, 6], [3, 4]), 4);
+	})
 });
 
 describe('invertCoords, The starting coords seem to be in y , x pairs', () => {
