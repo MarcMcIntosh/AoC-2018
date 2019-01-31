@@ -63,7 +63,7 @@ const fillGrid = require('../src/day-06/fillGrid');
 const countArea = require('../src/day-06/countArea');
 // const highestKey = require('../src/day-06/highestKey');
 const highestValue = require('../src/day-06/highestValue');
-
+const part1 = require('../src/day-06/part-1.js');
 
 describe('maxCoord should return the highest coordinate based on functor', () => {
 
@@ -309,7 +309,7 @@ describe('countArea', () => {
 	});	
 });
 
-describe('highestKey', () => {
+describe('highestValue', () => {
 
 	const stubInputOne = {
                 a: Infinity,
@@ -323,4 +323,14 @@ describe('highestKey', () => {
 		assert.equal(highestValue(stubInputOne), 17);
 	});
 
-}); 
+});
+
+describe('day 06, part 1', () => {
+	it('Should return 17 from the input [[ 1, 1 ], [1, 6], [8, 3], [3, 4], [5, 5], [8, 9]]', () => {
+
+		const value = [[ 1, 1 ], [1, 6], [8, 3], [3, 4], [5, 5], [8, 9]];
+		const expect = 17;
+
+		assert.equal(part1(value), expect);
+	});
+});
