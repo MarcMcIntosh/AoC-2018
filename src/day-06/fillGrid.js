@@ -14,7 +14,7 @@ function fillGrid(startingCoords) {
 			const distances = startingCoords
 				.map((coord) => coordsWithDistance(coord, [x, y]))
 				.sort(sortByNearestDistance);
-				
+			
 			const [ first, second ] = distances;
 				
 			const key = first.distance < second.distance ? coordsToString(first.coords) : '.';

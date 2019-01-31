@@ -213,13 +213,21 @@ describe('fillGrid, create and fill grid from starting coords with each x:y coor
 
 		assert.deepEqual(fillGrid(start_with), expect);
 	});
-
-	const test2_result = [ [ '1:1', '1:1', '1:1' ], [ '1:1', '1:1', '.' ], [ '1:1', '.', '2:2' ] ];
+	
+	const test2_result = [
+		[ '1:1', '1:1', '.' ],
+		[ '1:1', '1:1', '.' ], 
+		[ '.', '.',  '2:2' ]
+	]; 
 
 	it('When given [[1, 1], [2, 2]] it should return ' + JSON.stringify(test2_result), () => {
 		assert.deepEqual(fillGrid([[1, 1], [2, 2]]), test2_result);
 	});
 
+
+});
+
+describe('countArea', () => {
 
 });
 
