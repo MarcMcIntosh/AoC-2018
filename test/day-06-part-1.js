@@ -228,6 +228,53 @@ describe('fillGrid, create and fill grid from starting coords with each x:y coor
 		assert.deepEqual(fillGrid([[1, 1], [2, 2]]), test2_result);
 	});
 
+	it('Checking stub inputs and expecteed output', () => {
+		const values = [[ 1, 1 ], [1, 6], [8, 3], [3, 4], [5, 5], [8, 9]].map(([y,x]) => [x, y]);
+		/* const expect = [
+			'aaaaa.cccc',
+			'aAaaa.cccc',
+			'aaaddecccc',
+			'aadddeccCc',
+			'..dDdeeccc', 
+			'bb.deEeecc',
+			'bBb.eeee..',
+			'bbb.eeefff',
+			'bbb.eeffff',
+			'bbb.ffffFf'
+		].join('\n'); */
+		
+		const expect = [
+			'aaaaa.ccc',
+			'aAaaa.ccc',
+			'aaaddeccc',
+			'aadddeccC',
+			'..dDdeecc', 
+			'bb.deEeec',
+			'bBb.eeee.',
+			'bbb.eeeff',
+			'bbb.eefff',
+			'bbb.ffffF'
+		].join('\n');
+
+		const grid = fillGrid(values);
+		grid[1][1] = 'A';
+		grid[6][1] = 'B';
+		grid[3][8] = 'C';
+		grid[4][3] = 'D';
+		grid[5][5] = 'E';
+		grid[9][8] = 'F';
+
+		const res = grid.map(d => d.join(''))
+			.join('\n')
+        		.replace(/1:1/g, 'a')
+        		.replace(/6:1/g, 'b')
+        		.replace(/3:8/g, 'c')
+        		.replace(/4:3/g, 'd')
+        		.replace(/5:5/g, 'e')
+        		.replace(/9:8/g, 'f');
+		
+		assert.equal(res, expect);
+	});
 
 });
 
