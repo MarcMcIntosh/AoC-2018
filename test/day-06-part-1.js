@@ -61,7 +61,9 @@ const coordsWithDistance = require('../src/day-06/coordsWithDistance');
 const sortByNearestDistance = require('../src/day-06/sortByNearestDistance');
 const fillGrid = require('../src/day-06/fillGrid');
 const countArea = require('../src/day-06/countArea');
-const highestKey = require('../src/day-06/highestKey');
+// const highestKey = require('../src/day-06/highestKey');
+const highestValue = require('../src/day-06/highestValue');
+
 
 describe('maxCoord should return the highest coordinate based on functor', () => {
 
@@ -317,8 +319,8 @@ describe('highestKey', () => {
                 e: 17,      
                 f: Infinity,
         };        
-	it('when given ' + JSON.stringify(stubInputOne) + ' is should return e', () => {
-		assert.equal(highestKey(stubInputOne), 'e');
+	it('when given ' + JSON.stringify(stubInputOne) + ' is should return 17', () => {
+		assert.equal(highestValue(stubInputOne), 17);
 	});
 
 }); 
